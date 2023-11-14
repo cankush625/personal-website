@@ -44,8 +44,7 @@ const About = () => {
           <br />I have programmed for <span className={"standout-text"}>
             8
           </span>{" "}
-          years,{" "}
-          <span className={"standout-text"}>2</span> professionally.
+          years, <span className={"standout-text"}>2</span> professionally.
         </p>
         <p>
           Apart from my work, I actively contribute to open-source projects and
