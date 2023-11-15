@@ -15,10 +15,6 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    console.log(
-      "Public key ____________",
-      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
-    );
 
     emailjs
       .sendForm(
