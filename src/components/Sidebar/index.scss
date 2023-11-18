@@ -177,5 +177,17 @@
       top: 15px;
       right: 15px;
     }
+
+    ul {
+      z-index: 2;
+
+      li a {
+        font-size: 20px;
+      }
+
+      &.mobile-show {
+        display: block;
+      }
+    }
   }
 }
