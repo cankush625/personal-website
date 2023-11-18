@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import skillCategories from "../../data/skills";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const [skill, setSkill] = useState([]);
+  const [showPopup, setShowPopup] = useState(false);
+  const [showKey, setShowKey] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,19 +29,44 @@ const Skills = () => {
     setSkill(skillCategories.map((doc) => doc));
   };
 
-  const renderSkill = (portfolio) => {
+  const renderSkill = (skills) => {
     return (
       <div className="images-container">
-        {portfolio.map((port, idx) => {
+        {skills.map((port, idx) => {
           return (
             <div className="image-box" key={idx}>
               <img src={port.image} className="skill-image" alt="skill" />
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
-                <button className="btn" onClick={() => window.open(port.url)}>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    setShowKey(idx);
+                    setShowPopup(true);
+                  }}
+                >
                   View
                 </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    );
+  };
+
+  const renderCategorySkills = (skills) => {
+    return (
+      <div>
+        {skills?.map((port, idx) => {
+          return (
+            <div key={idx}>
+              <h3>{port.factorName}</h3>
+              <div>
+                {port.skillList?.map((skill, idx) => {
+                  return <div key={idx}>{skill?.logo}</div>;
+                })}
               </div>
             </div>
           );
@@ -57,6 +86,21 @@ const Skills = () => {
           />
         </h1>
         <div>{renderSkill(skill)}</div>
+        <div className={showPopup ? "popup" : "popup-disabled"}>
+          <div>
+            <FontAwesomeIcon
+              onClick={() => setShowPopup(false)}
+              icon={faClose}
+              color={"#ffd700"}
+              size={"3x"}
+              className={showPopup ? "close-popup-icon" : ""}
+            />
+            <h1>{skill[showKey]?.name}</h1>
+            <div className={"skills-logo"}>
+              {renderCategorySkills(skill[showKey]?.skills)}
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
