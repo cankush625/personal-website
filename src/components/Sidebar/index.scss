@@ -83,6 +83,12 @@
       }
     }
 
+    a.skills-link {
+      &:after {
+        content: "SKILLS";
+      }
+    }
+
     a.contact-link {
       &:after {
         content: "CONTACT";

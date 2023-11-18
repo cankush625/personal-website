@@ -19,8 +19,9 @@
   animation-delay: 1s;
 }
 
-.about-page,
-.contact-page {
+.container.about-page,
+.container.contact-page,
+.container.skills-page {
   .text-zone {
     position: absolute;
     left: 10%;
@@ -88,7 +89,8 @@
     min-height: auto;
 
     &.about-page,
-    &.contact-page {
+    &.contact-page,
+    &.skills-page {
       .text-zone {
         position: initial;
         transform: none;
@@ -96,6 +98,22 @@
         display: block;
         padding: 20px;
         box-sizing: border-box;
+      }
+    }
+
+    &.skills-page {
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+
+      h1.page-title {
+        margin-left: 20px;
+        margin-top: 20px;
+      }
+
+      .image-box {
+        height: 200px;
+        max-width: calc(50% - 10px);
       }
     }
   }
