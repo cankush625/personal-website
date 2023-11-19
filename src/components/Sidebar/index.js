@@ -10,6 +10,7 @@ import {
   faBars,
   faClose,
   faCogs,
+  faImages,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -52,6 +53,14 @@ const Sidebar = () => {
           to="/skills"
         >
           <FontAwesomeIcon icon={faCogs} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          onClick={() => setShowNav(false)}
+          activeclassname="active"
+          className="art-gallery-link"
+          to="/art-gallery"
+        >
+          <FontAwesomeIcon icon={faImages} color="#4d4d4e" />
         </NavLink>
         <NavLink
           onClick={() => setShowNav(false)}
