@@ -123,20 +123,22 @@
   }
 }
 
-.popup-disabled {
+.popup-disabled,
+.tooltip-disabled {
   display: none;
 }
 
 .popup {
   position: fixed;
   width: calc(90% - 150px);
-  height: 70%;
+  height: 70vh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: #edefef;
   padding: 20px;
   border: 1px solid #ccc;
+  border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
 }
@@ -152,9 +154,28 @@
   }
 }
 
-.skills-logo {
-  width: 20px;
-  height: 20px;
+.blur-background {
+  backdrop-filter: blur(2px);
+}
+
+.skill-logo {
+  width: 30px;
+  height: 30px;
+}
+
+.skill-name {
+  display: none;
+}
+
+.skills-section {
+  position: absolute;
+  text-align: initial;
+}
+
+.factor-skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 @media screen and (max-width: 1200px) {

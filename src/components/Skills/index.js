@@ -58,14 +58,21 @@ const Skills = () => {
 
   const renderCategorySkills = (skills) => {
     return (
-      <div>
+      <div className={"skills-container"}>
         {skills?.map((port, idx) => {
           return (
             <div key={idx}>
               <h3>{port.factorName}</h3>
-              <div>
+              <div className={"factor-skills-container"}>
                 {port.skillList?.map((skill, idx) => {
-                  return <div key={idx}>{skill?.logo}</div>;
+                  return (
+                    <div>
+                      <div className={"skill-logo"} key={idx}>
+                        {skill?.logo}
+                      </div>
+                      {/*<div className={"skill-name"}>{skill?.name}</div>*/}
+                    </div>
+                  );
                 })}
               </div>
             </div>
@@ -77,29 +84,31 @@ const Skills = () => {
 
   return (
     <>
-      <div className="container skills-page">
-        <h1 className="page-title">
-          <AnimatedLetters
-            letterClass={letterClass}
-            strArray={"Skills".split("")}
-            idx={15}
+      <div className={showPopup ? "popup" : "popup-disabled"}>
+        <div>
+          <FontAwesomeIcon
+            onClick={() => setShowPopup(false)}
+            icon={faClose}
+            color={"#ffd700"}
+            size={"3x"}
+            className={showPopup ? "close-popup-icon" : ""}
           />
-        </h1>
-        <div>{renderSkill(skill)}</div>
-        <div className={showPopup ? "popup" : "popup-disabled"}>
-          <div>
-            <FontAwesomeIcon
-              onClick={() => setShowPopup(false)}
-              icon={faClose}
-              color={"#ffd700"}
-              size={"3x"}
-              className={showPopup ? "close-popup-icon" : ""}
-            />
-            <h1>{skill[showKey]?.name}</h1>
-            <div className={"skills-logo"}>
-              {renderCategorySkills(skill[showKey]?.skills)}
-            </div>
+          <h1>{skill[showKey]?.name}</h1>
+          <div className={"skills-section"}>
+            {renderCategorySkills(skill[showKey]?.skills)}
           </div>
+        </div>
+      </div>
+      <div className={"container skills-page"}>
+        <div className={showPopup ? "blur-background" : ""}>
+          <h1 className="page-title">
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={"Skills".split("")}
+              idx={15}
+            />
+          </h1>
+          <div>{renderSkill(skill)}</div>
         </div>
       </div>
     </>
