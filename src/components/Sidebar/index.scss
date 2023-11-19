@@ -89,6 +89,16 @@
       }
     }
 
+    a.art-gallery-link {
+      &:after {
+        content: "ART GALLERY";
+        line-height: 1;
+        justify-content: center;
+        align-items: center;
+        top: 18px;
+      }
+    }
+
     a.contact-link {
       &:after {
         content: "CONTACT";

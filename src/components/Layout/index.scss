@@ -21,7 +21,8 @@
 
 .container.about-page,
 .container.contact-page,
-.container.skills-page {
+.container.skills-page,
+.container.art-gallery-page {
   .text-zone {
     position: absolute;
     left: 10%;
@@ -90,7 +91,8 @@
 
     &.about-page,
     &.contact-page,
-    &.skills-page {
+    &.skills-page,
+    &.art-gallery-page {
       .text-zone {
         position: initial;
         transform: none;
@@ -101,7 +103,8 @@
       }
     }
 
-    &.skills-page {
+    &.skills-page,
+    &.art-gallery-page {
       width: 100%;
       padding: 20px;
       box-sizing: border-box;
