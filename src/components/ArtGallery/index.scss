@@ -1,4 +1,4 @@
-.arts-page {
+.art-gallery-page {
   padding-left: 100px;
   padding-right: 50px;
   width: calc(100% - 150px);
@@ -177,6 +177,22 @@
 @media screen and (max-width: 1200px) {
   .image-box {
     flex: 1 1 30% !important;
+  }
+
+  .popup {
+    height: 60vh;
+    width: 70vw;
+  }
+
+  .arts-section {
+    height: 50vh;
+  }
+
+  .art-full-popup {
+    max-height: 48vh;
+    max-width: 68vw;
+    height: auto;
+    width: auto;
   }
 }
 

@@ -77,7 +77,7 @@ const ArtGallery = () => {
           </div>
         </div>
       </div>
-      <div className={"container arts-page"}>
+      <div className={"container art-gallery-page"}>
         <div className={showPopup ? "blur-background" : ""}>
           <h1 className="page-title">
             <AnimatedLetters
