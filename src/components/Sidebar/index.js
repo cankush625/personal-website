@@ -9,6 +9,7 @@ import {
   faUser,
   faBars,
   faClose,
+  faCogs,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -43,6 +44,14 @@ const Sidebar = () => {
           to="/about"
         >
           <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          onClick={() => setShowNav(false)}
+          activeclassname="active"
+          className="skills-link"
+          to="/skills"
+        >
+          <FontAwesomeIcon icon={faCogs} color="#4d4d4e" />
         </NavLink>
         <NavLink
           onClick={() => setShowNav(false)}
