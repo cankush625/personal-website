@@ -35,8 +35,7 @@ const About = () => {
           <span className={"standout-text"}>Software Engineer</span> with a
           strong interest in cutting-edge technologies such as Blockchain,
           Hybrid-Multi Cloud, Machine Learning, DevOps, Cloud Computing, and
-          Security. Currently, I work as a Backend Engineer at Velotio
-          Technologies, Pune.
+          Security. Currently, I work as a Senior Backend Engineer at Gyaan AI.
         </p>
         <p>
           As a tech enthusiast, I take pleasure in learning and incorporating
