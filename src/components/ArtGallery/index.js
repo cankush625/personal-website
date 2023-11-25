@@ -58,7 +58,7 @@ const ArtGallery = () => {
 
   return (
     <>
-      <div className={showPopup ? "popup" : "popup-disabled"}>
+      <div className={showPopup ? "art-popup" : "popup-disabled"}>
         <div>
           <FontAwesomeIcon
             onClick={() => setShowPopup(false)}
