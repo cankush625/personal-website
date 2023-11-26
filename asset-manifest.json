@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.c835594a.css",
+    "main.css": "/static/css/main.09b79531.css",
     "main.js": "/static/js/main.f70b1c95.js",
     "static/js/787.0f7dc5a1.chunk.js": "/static/js/787.0f7dc5a1.chunk.js",
     "static/media/database.png": "/static/media/database.e45c6c96a59cc3c61e25.png",
@@ -20,12 +20,12 @@
     "static/media/phoenixgen_systems_logo.png": "/static/media/phoenixgen_systems_logo.cdcb721cf29a8bafa658.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.c835594a.css.map": "/static/css/main.c835594a.css.map",
+    "main.09b79531.css.map": "/static/css/main.09b79531.css.map",
     "main.f70b1c95.js.map": "/static/js/main.f70b1c95.js.map",
     "787.0f7dc5a1.chunk.js.map": "/static/js/787.0f7dc5a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c835594a.css",
+    "static/css/main.09b79531.css",
     "static/js/main.f70b1c95.js"
   ]
 }
