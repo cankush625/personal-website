@@ -179,13 +179,13 @@
     flex: 1 1 30% !important;
   }
 
-  .popup {
-    height: 60vh;
+  .art-popup {
+    height: max-content;
     width: 70vw;
   }
 
   .arts-section {
-    height: 50vh;
+    height: max-content;
   }
 
   .art-full-popup {
