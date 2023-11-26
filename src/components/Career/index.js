@@ -52,7 +52,7 @@ const Career = () => {
       </h1>
       <div className={"career-timeline"}>
         <Timeline position="alternate">
-          <TimelineItem>
+          <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
               align="right"
@@ -60,7 +60,10 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
               <TimelineDot color="primary" variant="outlined">
                 <img
                   src={GyaanAILogo}
@@ -68,7 +71,10 @@ const Career = () => {
                   className={"timeline-dot-image"}
                 />
               </TimelineDot>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
               <Typography
@@ -86,14 +92,17 @@ const Career = () => {
               </Typography>
             </TimelineContent>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
               variant="h6"
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
               <TimelineDot color="primary" variant="outlined">
                 <img
                   src={VelotioLogo}
@@ -101,7 +110,10 @@ const Career = () => {
                   className={"timeline-dot-image"}
                 />
               </TimelineDot>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
               <Typography
@@ -119,9 +131,18 @@ const Career = () => {
               </Typography>
             </TimelineContent>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className={"career-timeline-item"}>
+            <TimelineOppositeContent
+              sx={{ m: "auto 0" }}
+              align="right"
+              variant="body2"
+              color="gray"
+            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
               <TimelineDot color="primary" variant="outlined">
                 <img
                   src={VelotioLogo}
@@ -129,7 +150,10 @@ const Career = () => {
                   className={"timeline-dot-image"}
                 />
               </TimelineDot>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
               <Typography
@@ -147,9 +171,18 @@ const Career = () => {
               </Typography>
             </TimelineContent>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className={"career-timeline-item"}>
+            <TimelineOppositeContent
+              sx={{ m: "auto 0" }}
+              align="right"
+              variant="body2"
+              color="gray"
+            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
               <TimelineDot color="primary" variant="outlined">
                 <img
                   src={PhoenixgenSystemsLogo}
@@ -157,7 +190,10 @@ const Career = () => {
                   className={"timeline-dot-image"}
                 />
               </TimelineDot>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
               <Typography
@@ -175,9 +211,18 @@ const Career = () => {
               </Typography>
             </TimelineContent>
           </TimelineItem>
-          <TimelineItem>
+          <TimelineItem className={"career-timeline-item"}>
+            <TimelineOppositeContent
+              sx={{ m: "auto 0" }}
+              align="right"
+              variant="body2"
+              color="gray"
+            ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector sx={{ bgcolor: "#ffd700" }} />
+              <TimelineConnector
+                sx={{ bgcolor: "#ffd700" }}
+                className={"career-timeline-connector"}
+              />
               <TimelineDot color="primary" variant="outlined">
                 <img
                   src={EngineeringCollegeLogo}
@@ -187,7 +232,9 @@ const Career = () => {
               </TimelineDot>
               <TimelineConnector
                 sx={{ bgcolor: "#ffd700" }}
-                className={"fading-timeline-connector"}
+                className={
+                  "fading-timeline-connector career-timeline-connector"
+                }
               />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>

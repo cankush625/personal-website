@@ -45,6 +45,18 @@
   }
 }
 
+@media screen and (min-width: 1400px) {
+  .career-page {
+    .career-timeline-connector {
+      height: 15px !important;
+    }
+
+    .career-timeline-item {
+      align-items: center;
+    }
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .career-page {
     .timeline-dot-image {
