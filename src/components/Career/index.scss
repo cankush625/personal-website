@@ -26,6 +26,23 @@
     height: 2vw;
     padding: 0.3vw;
   }
+
+  .position-title {
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .position-details {
+    color: #9d9d9d;
+  }
+
+  .fading-timeline-connector {
+    background: linear-gradient(
+      to bottom,
+      rgb(255, 215, 0),
+      rgb(255, 255, 255, 0)
+    );
+  }
 }
 
 @media screen and (max-width: 1200px) {

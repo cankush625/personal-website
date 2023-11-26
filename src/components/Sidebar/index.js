@@ -10,7 +10,8 @@ import {
   faBars,
   faClose,
   faCogs,
-  faImages, faBriefcase,
+  faImages,
+  faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
