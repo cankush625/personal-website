@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.2702a183.css",
-    "main.js": "/static/js/main.81b35619.js",
+    "main.css": "/static/css/main.20361fdd.css",
+    "main.js": "/static/js/main.72d0c990.js",
     "static/js/787.0f7dc5a1.chunk.js": "/static/js/787.0f7dc5a1.chunk.js",
     "static/media/database.png": "/static/media/database.e45c6c96a59cc3c61e25.png",
     "static/media/horse.jpg": "/static/media/horse.99e7c1a7e8bd274c78e4.jpg",
@@ -9,20 +9,23 @@
     "static/media/mobile_apps.jpg": "/static/media/mobile_apps.975a01a38dd532751e6f.jpg",
     "static/media/cloud_computing.jpg": "/static/media/cloud_computing.fbbb846c9382020ad598.jpg",
     "static/media/landscape.jpg": "/static/media/landscape.d7095f41f8688c0ab09e.jpg",
+    "static/media/engineering_college_logo.png": "/static/media/engineering_college_logo.57f0f9ca27f950c8af06.png",
     "static/media/crm.jpg": "/static/media/crm.62595f5a16f6a267e1ca.jpg",
     "static/media/backend.png": "/static/media/backend.93d118a2e0fcf9c52cdc.png",
+    "static/media/velotio_logo.svg": "/static/media/velotio_logo.77038a5c37e4b4dcf6942dd4f6d496f2.svg",
     "static/media/logo.png": "/static/media/logo.75581b4818b170b836e9.png",
     "static/media/frontend.png": "/static/media/frontend.e511a4289da9a28c3eed.png",
     "static/media/helvetica-neu.ttf": "/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
     "static/media/LaBelleAurore.woff2": "/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
+    "static/media/phoenixgen_systems_logo.png": "/static/media/phoenixgen_systems_logo.cdcb721cf29a8bafa658.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.2702a183.css.map": "/static/css/main.2702a183.css.map",
-    "main.81b35619.js.map": "/static/js/main.81b35619.js.map",
+    "main.20361fdd.css.map": "/static/css/main.20361fdd.css.map",
+    "main.72d0c990.js.map": "/static/js/main.72d0c990.js.map",
     "787.0f7dc5a1.chunk.js.map": "/static/js/787.0f7dc5a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2702a183.css",
-    "static/js/main.81b35619.js"
+    "static/css/main.20361fdd.css",
+    "static/js/main.72d0c990.js"
   ]
 }
