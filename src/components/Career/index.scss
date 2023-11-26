@@ -1,0 +1,47 @@
+.career-page {
+  padding-left: 100px;
+  padding-right: 50px;
+  width: calc(100% - 150px);
+  position: initial;
+  height: 100%;
+  overflow: auto;
+
+  h1 {
+    color: #ffd700;
+    font-size: 53px;
+    margin: 0;
+    font-family: "Coolvetica", sans-serif;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  h1.page-title {
+    margin-left: 100px;
+    margin-top: 100px;
+  }
+
+  .timeline-dot-image {
+    width: 2vw;
+    height: 2vw;
+    padding: 0.3vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .career-page {
+    .timeline-dot-image {
+      width: 3vw;
+      height: 3vw;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .career-page {
+    .timeline-dot-image {
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+}
