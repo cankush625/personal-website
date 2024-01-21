@@ -1,16 +1,13 @@
-import Horse from "../assets/images/arts/horse.jpg";
-import Landscape from "../assets/images/arts/landscape.jpg";
-
 let artCategories = [
   {
     name: "Horse Painting",
     description: "Acrylic Painting",
-    image: Horse,
+    image: "https://drive.google.com/thumbnail?id=1I5Q36Dehi-SugzCd0pWuv8XmmpyZtDiW&sz=w700-h700",
   },
   {
     name: "Landscape Painting",
     description: "Acrylic Painting",
-    image: Landscape,
+    image: "https://drive.google.com/thumbnail?id=1sXrwe09hRJSymww4QL_1WBXhXdeiYfvg&sz=w900-h900",
   },
 ];
 
