@@ -12,6 +12,7 @@ import {
   faCogs,
   faImages,
   faBriefcase,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -62,6 +63,14 @@ const Sidebar = () => {
           to="/career"
         >
           <FontAwesomeIcon icon={faBriefcase} color="#4d4d4e" />
+        </NavLink>
+        <NavLink
+          onClick={() => setShowNav(false)}
+          activeclassname="active"
+          className="paper-shelf-link"
+          to="/paper-shelf"
+        >
+          <FontAwesomeIcon icon={faBook} color="#4d4d4e" />
         </NavLink>
         <NavLink
           onClick={() => setShowNav(false)}
