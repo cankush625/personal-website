@@ -2,7 +2,7 @@ let blogs = {
   read: [
     {
       name: "Count-Min Sketch: The Art and Science of Estimating Stuff",
-      description: "Talks about probabilistic data structure Count-Min SKetch",
+      description: "Talks about probabilistic data structure Count-Min Sketch",
       authors: "Itamar Haber, Redis Labs",
       image:
         "https://drive.google.com/thumbnail?id=1lDOovLzclzObn6H_8XpBQuruw7FjzWTT&sz=w900-h900",

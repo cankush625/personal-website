@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import LinearProgress from "@mui/material/LinearProgress";
+import Box from "@mui/material/Box";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import books from "../../data/books";
 import papers from "../../data/papers";
@@ -53,6 +55,12 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
+                <Box sx={{ width: "100%", display: "inline-block" }}>
+                  <LinearProgress
+                    variant="determinate"
+                    value={(port.pagesRead / port.totalPages) * 100}
+                  />
+                </Box>
                 <button className="btn" onClick={() => {}}>
                   View
                 </button>
