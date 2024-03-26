@@ -23,6 +23,7 @@
 .container.contact-page,
 .container.skills-page,
 .container.career-page,
+.container.paper-shelf-page,
 .container.art-gallery-page {
   .text-zone {
     position: absolute;
@@ -94,6 +95,7 @@
     &.contact-page,
     &.skills-page,
     &.career-page,
+    &.paper-shelf-page,
     &.art-gallery-page {
       .text-zone {
         position: initial;
