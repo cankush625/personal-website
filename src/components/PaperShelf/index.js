@@ -87,9 +87,11 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
-                <button className="btn" onClick={() => {}}>
-                  View
-                </button>
+                <a target={"_blank"} rel={"noreferrer"} href={port.link}>
+                  <button className="btn" onClick={() => {}}>
+                    View
+                  </button>
+                </a>
               </div>
             </div>
           );
