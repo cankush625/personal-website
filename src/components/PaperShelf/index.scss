@@ -172,7 +172,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 
     li {
       padding: 0;
@@ -196,7 +196,7 @@
   height: 40px;
   line-height: 34px;
   border: 2px solid #ffd700;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 14px;
   color: #fff;
   background: transparent;
