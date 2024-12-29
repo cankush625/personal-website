@@ -7,6 +7,7 @@ let blogs = {
       image:
         "https://drive.google.com/thumbnail?id=1lDOovLzclzObn6H_8XpBQuruw7FjzWTT&sz=w900-h900",
       link: "https://redis.com/blog/count-min-sketch-the-art-and-science-of-estimating-stuff",
+      readDate: "Mar 11, 2024"
     },
     {
       name: "Himeji: A scalable Centralized System for Authorization at Airbnb",
@@ -16,6 +17,7 @@ let blogs = {
       image:
         "https://drive.google.com/thumbnail?id=1DEH3AoCiOG2r3g-38MUoXeWPNEYIndRk&sz=w900-h900",
       link: "https://medium.com/airbnb-engineering/himeji-a-scalable-centralized-system-for-authorization-at-airbnb-341664924574",
+      readDate: "Mar 21, 2024"
     },
     {
       name: "AuthZ: Carta's highly scalable permissions system",
@@ -25,6 +27,7 @@ let blogs = {
       image:
         "https://drive.google.com/thumbnail?id=163gJ1EHJMjLDEIYqCe4p8cWiT7FkmT7H&sz=w900-h900",
       link: "https://medium.com/building-carta/authz-cartas-highly-scalable-permissions-system-782a7f2c840f",
+      readDate: "Apr 05, 2024"
     },
   ],
   written: [
@@ -35,6 +38,7 @@ let blogs = {
       image:
         "https://drive.google.com/thumbnail?id=1u1ZZMs_PfgnaB8TktvZNQ6rl9nyyZgKT&sz=w900-h900",
       link: "https://ankush-chavan.medium.com/introduction-to-observability-and-setting-up-distributed-tracing-using-jaeger-1c4a05a9e343",
+      writtenDate: "Jun 25, 2023"
     },
     {
       name: "Creating Complete Infrastructure to Launch Website Using Terraform and AWS",
@@ -43,6 +47,7 @@ let blogs = {
       image:
         "https://drive.google.com/thumbnail?id=1MdMEAuaQtvZTRb1uXSIRTxD6SZA1pviV&sz=w900-h900",
       link: "https://ankush-chavan.medium.com/creating-complete-infrastructure-to-launch-website-using-terraform-and-aws-1be917b75be9",
+      writtenDate: "Jun 11, 2020"
     },
     {
       name: "Integrating Ansible and Jenkins with Terraform to Automate Infra Provisioning",
@@ -51,6 +56,7 @@ let blogs = {
       authors: "Ankush Chavan",
       image: "https://miro.medium.com/max/1077/1*3ewRImzpkYHMHL-tzQunvA.png",
       link: "https://ankush-chavan.medium.com/integrating-ansible-with-terraform-to-make-a-powerful-infrastructure-50795c36f78b",
+      writtenDate: "Jun 15, 2020"
     },
   ],
 };
