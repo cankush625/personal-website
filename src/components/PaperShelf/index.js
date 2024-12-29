@@ -51,6 +51,9 @@ const PaperShelf = () => {
           return (
             <div className="image-box" key={idx}>
               <img src={port.image} className="entity-image" alt="book" />
+              <div className="read-date">
+                <p>{port.readDate ?? port.writtenDate}</p>
+              </div>
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
@@ -83,6 +86,9 @@ const PaperShelf = () => {
                 className="entity-image"
                 alt="research paper"
               />
+              <div className="read-date">
+                <p>{port.readDate ?? port.writtenDate}</p>
+              </div>
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
@@ -107,6 +113,9 @@ const PaperShelf = () => {
           return (
             <div className="image-box" key={idx}>
               <img src={port.image} className="entity-image" alt="blog" />
+              <div className="read-date">
+                <p>{port.readDate ?? port.writtenDate}</p>
+              </div>
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
