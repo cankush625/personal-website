@@ -78,6 +78,20 @@
       font-weight: 700;
     }
 
+    .image-date {
+      position: absolute;
+      z-index: 2;
+      color: #312f2f;
+      font-size: 12px;
+      font-weight: 600;
+      background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
+      border-radius: 10px;
+      margin: 10px auto 0 10px;
+      padding: 5px 10px;
+      line-height: 0;
+      backdrop-filter: blur(1rem) saturate(160%)
+    }
+
     .btn {
       margin-top: 30px;
       margin-bottom: 10px;
