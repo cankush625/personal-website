@@ -36,6 +36,9 @@ const ArtGallery = () => {
           return (
             <div className="image-box" key={idx}>
               <img src={port.image} className="art-image" alt="art" />
+              <div className="image-date">
+                <p>{port.creation_date}</p>
+              </div>
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
