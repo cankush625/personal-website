@@ -21,11 +21,25 @@ let artCategories = [
     creationDate: "Sept 22, 2023",
   },
   {
+    name: "Landscape Painting",
+    description: "Acrylic Painting",
+    image:
+      "https://drive.google.com/thumbnail?id=1sLJhUHrac1jPvLgCqNVS3-bBPXUhXr6W&sz=w900-h900",
+    creationDate: "Nov 03, 2024",
+  },
+  {
     name: "Vancouver, Canada",
     description: "Acrylic Painting",
     image:
       "https://drive.google.com/thumbnail?id=1YApciPfD4WZi-Vq84X_D4_4Chjkap_5T&sz=w900-h900",
     creationDate: "Dec 31, 2022",
+  },
+  {
+    name: "Landscape Painting",
+    description: "Acrylic Painting",
+    image:
+      "https://drive.google.com/thumbnail?id=1mqVoWHW5kKqhKVbsyX_KmKi-gBG9fvKg&sz=w900-h900",
+    creationDate: "Apr 14, 2024",
   },
   {
     name: "Landscape Painting",
@@ -61,6 +75,13 @@ let artCategories = [
     image:
       "https://drive.google.com/thumbnail?id=1Xc__cOGKvnfwbA80gRWWSZl4L3g_sTdJ&sz=w900-h900",
     creationDate: "Dec 14, 2021",
+  },
+  {
+    name: "My First Digital Painting",
+    description: "Digital Painting on IPad",
+    image:
+      "https://drive.google.com/thumbnail?id=1So5vjU0erQVAVvt9Jciw3j-6TLHi5U-R&sz=w900-h900",
+    creationDate: "Aug 28, 2024",
   },
   {
     name: "Portrait",
