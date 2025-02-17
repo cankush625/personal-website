@@ -44,7 +44,7 @@ const Home = () => {
           <br />
           <span className={`${letterClass} _13`}>I</span>
           <span className={`${letterClass} _14`}>'m</span>
-          <img src={LogoTitle} alt={"A"} />
+          <img src={LogoTitle} alt={"Logo of the website (Ankush Chavan)"} />
           <AnimatedLetters
             letterClass={letterClass}
             strArray={nameArray}
