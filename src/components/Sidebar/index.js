@@ -40,14 +40,16 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
         </NavLink>
-        <NavLink
-          onClick={() => setShowNav(false)}
-          activeclassname="active"
-          className="about-link"
-          to="/about"
-        >
-          <FontAwesomeIcon icon={faUser} color="#4d4d4e" />
-        </NavLink>
+        {/*Hidden About section because the about section content has been*/}
+        {/*moved to home page*/}
+        {/*<NavLink*/}
+        {/*  onClick={() => setShowNav(false)}*/}
+        {/*  activeclassname="active"*/}
+        {/*  className="about-link"*/}
+        {/*  to="/about"*/}
+        {/*>*/}
+        {/*  <FontAwesomeIcon icon={faUser} color="#4d4d4e" />*/}
+        {/*</NavLink>*/}
         <NavLink
           onClick={() => setShowNav(false)}
           activeclassname="active"

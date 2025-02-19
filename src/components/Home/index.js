@@ -58,6 +58,27 @@ const Home = () => {
           />
         </h1>
         <h2>Backend Engineer / Tech Blogger / Artist</h2>
+        <div className={"about-text-zone"}>
+          <p>
+            I'm a skilled{" "}
+            <span className={"standout-text"}>Software Engineer</span> with a
+            strong interest in cutting-edge technologies such as Blockchain,
+            Hybrid-Multi Cloud, Machine Learning, DevOps, Cloud Computing, and
+            Security. Currently, I work as a Senior Backend Engineer at Gyaan AI.
+          </p>
+          <p>
+            As a tech enthusiast, I take pleasure in learning and incorporating
+            new technologies into my work.
+            <br />I have programmed for <span className={"standout-text"}>
+              8
+            </span>{" "}
+            years, <span className={"standout-text"}>2</span> professionally.
+          </p>
+          <p>
+            Apart from my work, I actively contribute to open-source projects and
+            write technical articles on Medium.
+          </p>
+        </div>
         <Link to={"/contact"} className={"flat-button"}>
           CONTACT ME
         </Link>
