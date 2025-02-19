@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://ankushchavan.com/</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://ankushchavan.com/#/about</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://ankushchavan.com/#/skills</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://ankushchavan.com/#/art-gallery</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://ankushchavan.com/#/paper-shelf</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+<url>
+  <loc>https://ankushchavan.com/#/career</loc>
+  <lastmod>2025-02-17T16:56:57+00:00</lastmod>
+</url>
+
+
+</urlset>
