@@ -35,6 +35,10 @@ const Home = () => {
     }, 4000);
   }, []);
 
+  const currentYear = new Date().getFullYear();
+  const firstProgrammedYear = 2016;
+  const firstProfessionalProgrammingYear = 2021;
+
   return (
     <div className={"container home-page"}>
       <div className={"text-zone"}>
@@ -70,9 +74,11 @@ const Home = () => {
             As a tech enthusiast, I take pleasure in learning and incorporating
             new technologies into my work.
             <br />I have programmed for <span className={"standout-text"}>
-              8
+              {currentYear - firstProgrammedYear}
             </span>{" "}
-            years, <span className={"standout-text"}>2</span> professionally.
+            years, <span className={"standout-text"}>
+              {currentYear - firstProfessionalProgrammingYear}
+            </span> professionally.
           </p>
           <p>
             Apart from my work, I actively contribute to open-source projects and
