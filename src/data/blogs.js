@@ -29,6 +29,16 @@ let blogs = {
       link: "https://medium.com/building-carta/authz-cartas-highly-scalable-permissions-system-782a7f2c840f",
       readDate: "Apr 05, 2024"
     },
+    {
+      name: "How Discord Stores Billions of Messages",
+      description:
+        "Talks about how discord stores billions of message in database, why they choose Cassandra as a database, etc",
+      authors: "Stanislav Vishnevskiy",
+      image:
+        "https://drive.google.com/thumbnail?id=1VR-tyjviIKKdtMgnLsgO1XRyHSoqKDw0&sz=w900-h900",
+      link: "https://discord.com/blog/how-discord-stores-billions-of-messages",
+      readDate: "Jun 29, 2025"
+    },
   ],
   written: [
     {

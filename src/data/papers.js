@@ -10,6 +10,16 @@ let papers = {
       link: "https://storage.googleapis.com/gweb-research2023-media/pubtools/pdf/10683a8987dbf0c6d4edcafb9b4f05cc9de5974a.pdf",
     },
     {
+      name: "How not to structure your database-backed web applications: a study of performance bugs in the wild",
+      description:
+        "Talks about the data access related bugs and performance issues when using ORMs",
+      authors: "Junwen Yang, Pranav Subramaniam & others",
+      image:
+        "https://drive.google.com/thumbnail?id=1vltsh4DGdCUCVZmCnQz9injUmTvMATI8&sz=w900-h900",
+      readDate: "Jun 07, 2025",
+      link: "http://hyperloop.cs.uchicago.edu/220-HowNotStructure.pdf",
+    },
+    {
       name: "Attention Is All You Need",
       description:
         "Talks about self-attention mechanism in machine translation tasks",
