@@ -10,6 +10,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import books from "../../data/books";
 import papers from "../../data/papers";
 import blogs from "../../data/blogs";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare, faClose } from "@fortawesome/free-solid-svg-icons";
+import parse from "html-react-parser";
 
 const PaperShelf = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -19,6 +22,8 @@ const PaperShelf = () => {
   const [showBookKey, setShowBookKey] = useState("read");
   const [showPaperKey, setShowPaperKey] = useState("read");
   const [showBlogKey, setShowBlogKey] = useState("read");
+  const [showPopup, setShowPopup] = useState(false);
+  const [showSummary, setShowSummary] = useState(0);
 
   useEffect(() => {
     setTimeout(() => {
@@ -65,7 +70,17 @@ const PaperShelf = () => {
                   />
                 </Box>
                 <button className="btn" onClick={() => {}}>
-                  View
+                  <span className={"button-name"}>View</span>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                </button>
+                <button
+                  className={port.summary ? "btn": "btn-disabled"}
+                  onClick={() => {
+                    setShowSummary(port.summary);
+                    setShowPopup(true);
+                  }}
+                >
+                  Summary
                 </button>
               </div>
             </div>
@@ -95,9 +110,19 @@ const PaperShelf = () => {
                 <h4 className="authors">Authors: {port.authors}</h4>
                 <a target={"_blank"} rel={"noreferrer"} href={port.link}>
                   <button className="btn" onClick={() => {}}>
-                    View
+                    <span className={"button-name"}>View</span>
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
                   </button>
                 </a>
+                <button
+                  className={port.summary ? "btn": "btn-disabled"}
+                  onClick={() => {
+                    setShowSummary(port.summary);
+                    setShowPopup(true);
+                  }}
+                >
+                  Summary
+                </button>
               </div>
             </div>
           );
@@ -122,9 +147,19 @@ const PaperShelf = () => {
                 <h4 className="authors">Authors: {port.authors}</h4>
                 <a target={"_blank"} rel={"noreferrer"} href={port.link}>
                   <button className="btn" onClick={() => {}}>
-                    View
+                    <span className={"button-name"}>View</span>
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
                   </button>
                 </a>
+                <button
+                  className={port.summary ? "btn": "btn-disabled"}
+                  onClick={() => {
+                    setShowSummary(port.summary);
+                    setShowPopup(true);
+                  }}
+                >
+                  Summary
+                </button>
               </div>
             </div>
           );
@@ -134,143 +169,163 @@ const PaperShelf = () => {
   };
 
   return (
-    <div className={"container paper-shelf-page"}>
-      <h1 className="page-title">
-        <AnimatedLetters
-          letterClass={letterClass}
-          strArray={"Paper Shelf".split("")}
-          idx={15}
-        />
-      </h1>
-      <div className={"content-zone"}>
-        <Accordion defaultExpanded className={"content-sections"}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-            aria-controls="eng-books-content"
-            className={"eng-books-header"}
-          >
-            <h3>Engineering Books</h3>
-          </AccordionSummary>
-          <AccordionDetails className={"content-details"}>
-            <div>
-              <div className={"action-section"}>
-                <ul>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showBookKey === "read" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowBookKey("read");
-                      }}
-                    >
-                      Read
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showBookKey === "written" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowBookKey("written");
-                      }}
-                    >
-                      Written
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <div>{renderBook(book)}</div>
-            </div>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion className={"content-sections"}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-            aria-controls="research-papers-content"
-            className={"research-papers-header"}
-          >
-            <h3>Research Papers</h3>
-          </AccordionSummary>
-          <AccordionDetails className={"content-details"}>
-            <div>
-              <div className={"action-section"}>
-                <ul>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showPaperKey === "read" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowPaperKey("read");
-                      }}
-                    >
-                      Read
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showPaperKey === "written" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowPaperKey("written");
-                      }}
-                    >
-                      Written
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <div>{renderPaper(paper)}</div>
-            </div>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion className={"content-sections"}>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-            aria-controls="eng-blogs-content"
-            className={"eng-blogs-header"}
-          >
-            <h3>Engineering Blogs</h3>
-          </AccordionSummary>
-          <AccordionDetails className={"content-details"}>
-            <div>
-              <div className={"action-section"}>
-                <ul>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showBlogKey === "read" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowBlogKey("read");
-                      }}
-                    >
-                      Read
-                    </button>
-                  </li>
-                  <li>
-                    <button
-                      className={`action-button ${
-                        showBlogKey === "written" ? "active-action-button" : ""
-                      }`}
-                      onClick={() => {
-                        setShowBlogKey("written");
-                      }}
-                    >
-                      Written
-                    </button>
-                  </li>
-                </ul>
-              </div>
-              <div>{renderBlog(blog)}</div>
-            </div>
-          </AccordionDetails>
-        </Accordion>
+    <>
+      <div className={showPopup ? "summary-popup" : "popup-disabled"}>
+        <div>
+          <FontAwesomeIcon
+            onClick={() => setShowPopup(false)}
+            icon={faClose}
+            color={"#e46976"}
+            size={"3x"}
+            className={showPopup ? "close-summary-popup-icon" : ""}
+          />
+          <h1 className={"summary-title"}>{showSummary?.title}</h1>
+          <hr/>
+          <div className={"summary-section"}>
+            <p>{parse(showSummary.summary ? showSummary.summary : "")}</p>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className={"container paper-shelf-page"}>
+        <div className={showPopup ? "blur-background" : ""}>
+          <h1 className="page-title">
+            <AnimatedLetters
+              letterClass={letterClass}
+              strArray={"Paper Shelf".split("")}
+              idx={15}
+            />
+          </h1>
+          <div className={"content-zone"}>
+            <Accordion defaultExpanded className={"content-sections"}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
+                aria-controls="eng-books-content"
+                className={"eng-books-header"}
+              >
+                <h3>Engineering Books</h3>
+              </AccordionSummary>
+              <AccordionDetails className={"content-details"}>
+                <div>
+                  <div className={"action-section"}>
+                    <ul>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showBookKey === "read" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowBookKey("read");
+                          }}
+                        >
+                          Read
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showBookKey === "written" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowBookKey("written");
+                          }}
+                        >
+                          Written
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>{renderBook(book)}</div>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion className={"content-sections"}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
+                aria-controls="research-papers-content"
+                className={"research-papers-header"}
+              >
+                <h3>Research Papers</h3>
+              </AccordionSummary>
+              <AccordionDetails className={"content-details"}>
+                <div>
+                  <div className={"action-section"}>
+                    <ul>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showPaperKey === "read" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowPaperKey("read");
+                          }}
+                        >
+                          Read
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showPaperKey === "written" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowPaperKey("written");
+                          }}
+                        >
+                          Written
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>{renderPaper(paper)}</div>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion className={"content-sections"}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
+                aria-controls="eng-blogs-content"
+                className={"eng-blogs-header"}
+              >
+                <h3>Engineering Blogs</h3>
+              </AccordionSummary>
+              <AccordionDetails className={"content-details"}>
+                <div>
+                  <div className={"action-section"}>
+                    <ul>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showBlogKey === "read" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowBlogKey("read");
+                          }}
+                        >
+                          Read
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          className={`action-button ${
+                            showBlogKey === "written" ? "active-action-button" : ""
+                          }`}
+                          onClick={() => {
+                            setShowBlogKey("written");
+                          }}
+                        >
+                          Written
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>{renderBlog(blog)}</div>
+                </div>
+              </AccordionDetails>
+            </Accordion>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 

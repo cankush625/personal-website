@@ -18,6 +18,21 @@ let papers = {
         "https://drive.google.com/thumbnail?id=1vltsh4DGdCUCVZmCnQz9injUmTvMATI8&sz=w900-h900",
       readDate: "Jun 07, 2025",
       link: "http://hyperloop.cs.uchicago.edu/220-HowNotStructure.pdf",
+      summary: {
+        "title": "How not to structure your database-backed web applications: a study of performance bugs in the wild",
+        "summary": `
+          <p>
+            Many applications use ORMs to develop database backed backends. Developing efficient ORM applications is challenging,
+            as the ORM framework hides the underlying database query generation and execution. This problem becomes more severe when these
+            applications having to process large amount of persistent data. So, this paper talks about common performance anti-patterns in
+            the real-world applications, how they affect application performance and remedies for them.
+          </p>
+          <p>
+            This paper talks about causes of inefficiencies due to ORMs like ORM API misuse, Database Design problems, Application design
+            trade-offs, etc.
+          </p>
+        `
+      },
     },
     {
       name: "Attention Is All You Need",
