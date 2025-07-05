@@ -129,9 +129,11 @@
     font-weight: 700;
   }
 
-  .btn {
+  .btn, .btn-disabled {
     margin-top: 30px;
     margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 0 23px;
     height: 40px;
     line-height: 34px;
@@ -146,9 +148,20 @@
     cursor: pointer;
   }
 
+  .btn-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    border: 2px solid #3a371f;
+    color: #393838;
+  }
+
   .btn:hover {
     transform: translateY(-3px);
     background: #ffd700;
+  }
+
+  .btn-name {
+    padding-right: 5px;
   }
 
   &:after {
@@ -223,6 +236,63 @@
   &:hover {
     background: #ffd700;
   }
+}
+
+.popup-disabled,
+.tooltip-disabled {
+  display: none;
+}
+
+.summary-popup {
+  position: fixed;
+  width: calc(90% - 150px);
+  height: 90vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #edefef;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.close-summary-popup-icon {
+  display: block;
+  position: sticky;
+  float: right;
+  // Top and right are need to set otherwise the close icon doesn't
+  // remain sticky on scroll.
+  top: 0;
+  right: 0;
+
+  &:hover {
+    color: #cc0707;
+  }
+}
+
+.blur-background {
+  backdrop-filter: blur(2px);
+}
+
+.summary-title {
+  font-size: 3rem;
+  margin-top: 3rem;
+  // This is required to clear the unintentional effect cause by
+  // using float: right property on close icon.
+  clear: both;
+}
+
+.summary-section {
+  text-align: initial;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 3rem;
+  font-size: 2rem;
+  font-family: sans-serif;
 }
 
 @media screen and (max-width: 1200px) {
