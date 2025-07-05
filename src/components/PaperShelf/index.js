@@ -70,7 +70,7 @@ const PaperShelf = () => {
                   />
                 </Box>
                 <button className="btn" onClick={() => {}}>
-                  <span className={"button-name"}>View</span>
+                  <span className={"btn-name"}>View</span>
                   <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
                 </button>
                 <button
@@ -110,7 +110,7 @@ const PaperShelf = () => {
                 <h4 className="authors">Authors: {port.authors}</h4>
                 <a target={"_blank"} rel={"noreferrer"} href={port.link}>
                   <button className="btn" onClick={() => {}}>
-                    <span className={"button-name"}>View</span>
+                    <span className={"btn-name"}>View</span>
                     <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
                   </button>
                 </a>
@@ -147,7 +147,7 @@ const PaperShelf = () => {
                 <h4 className="authors">Authors: {port.authors}</h4>
                 <a target={"_blank"} rel={"noreferrer"} href={port.link}>
                   <button className="btn" onClick={() => {}}>
-                    <span className={"button-name"}>View</span>
+                    <span className={"btn-name"}>View</span>
                     <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
                   </button>
                 </a>
