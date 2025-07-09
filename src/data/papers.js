@@ -12,7 +12,7 @@ let papers = {
     {
       name: "FoundationDB: A Distributed Unbundled Transactional Key Value Store",
       description:
-        "Foundation DBs architecture and design decisions and implementation details",
+        "Foundation DBs architecture, design decisions and implementation details",
       authors: "Jingyu Zhou, Meng Xu, Bala Namasivayam & others",
       image:
         "https://drive.google.com/thumbnail?id=1pmAyGpSnOu0mJ45UWmncwFkFIRU5b_EV&sz=w900-h900",
