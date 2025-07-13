@@ -23,7 +23,7 @@ const PaperShelf = () => {
   const [showPaperKey, setShowPaperKey] = useState("read");
   const [showBlogKey, setShowBlogKey] = useState("read");
   const [showPopup, setShowPopup] = useState(false);
-  const [showSummary, setShowSummary] = useState(0);
+  const [showSummary, setShowSummary] = useState({});
 
   useEffect(() => {
     setTimeout(() => {
@@ -35,6 +35,8 @@ const PaperShelf = () => {
     getBook();
     getPaper();
     getBlog();
+
+    showSummaryPopupIfSummaryInQueryParams();
   }, []);
 
   const getBook = async () => {
@@ -47,6 +49,81 @@ const PaperShelf = () => {
 
   const getBlog = async () => {
     setBlog(blogs);
+  };
+
+  const showSummaryPopupIfSummaryInQueryParams = () => {
+    // Check URL for popup parameters
+    const hashPart = window.location.hash;
+    const queryStartIndex = hashPart.indexOf('?');
+    if (queryStartIndex !== -1) {
+      const queryString = hashPart.substring(queryStartIndex);
+      const queryParams = new URLSearchParams(queryString);
+      const summaryId = queryParams.get('summary');
+
+      if (summaryId) {
+        const summaryIdData = summaryId.split("-");
+        const section = summaryIdData[0];
+        const action = summaryIdData[1];
+        // Convert to number if it's a numeric ID
+        const idx = parseInt(summaryIdData[2], 10);
+        switch (section) {
+          case "books":
+            setShowSummary(books[action][idx].summary);
+            break;
+          case "papers":
+            setShowSummary(papers[action][idx].summary);
+            break;
+          case "blogs":
+            setShowSummary(blogs[action][idx].summary);
+            break;
+        }
+        setShowPopup(true);
+      }
+    }
+  }
+
+  const updateURLWithSummaryQueryParam = (summaryId) => {
+    const hashPart = window.location.hash;
+    let basePath;
+
+    // Remove any existing query parameters
+    const queryStartIndex = hashPart.indexOf('?');
+    if (queryStartIndex !== -1) {
+      basePath = hashPart.substring(0, queryStartIndex);
+    } else {
+      basePath = hashPart;
+    }
+
+    // Append the new query parameter
+    const newUrl = `${window.location.origin}${window.location.pathname}${basePath}?summary=${summaryId}`;
+    window.history.pushState({}, '', newUrl);
+  }
+
+  const removeSummaryQueryParamFromURL = () => {
+    const hashPart = window.location.hash;
+    const queryStartIndex = hashPart.indexOf('?');
+
+    if (queryStartIndex !== -1) {
+      const basePath = hashPart.substring(0, queryStartIndex);
+      const newUrl = `${window.location.origin}${window.location.pathname}${basePath}`;
+      window.history.pushState({}, '', newUrl);
+    }
+  }
+
+  // Function to open popup and update URL
+  const openSummaryPopup = (summaryId, summary) => {
+    setShowSummary(summary);
+    setShowPopup(true);
+
+    // Update URL without full page reload
+    updateURLWithSummaryQueryParam(summaryId)
+  };
+
+  // Function to close popup and clean URL
+  const closeSummaryPopup = () => {
+    setShowPopup(false);
+    // Remove query parameters from URL
+    removeSummaryQueryParamFromURL();
   };
 
   const renderBook = (books) => {
@@ -76,8 +153,8 @@ const PaperShelf = () => {
                 <button
                   className={port.summary ? "btn": "btn-disabled"}
                   onClick={() => {
-                    setShowSummary(port.summary);
-                    setShowPopup(true);
+                    const summaryId = "books" + "-" + showBookKey + "-" + idx
+                    openSummaryPopup(summaryId, port.summary);
                   }}
                 >
                   Summary
@@ -117,8 +194,8 @@ const PaperShelf = () => {
                 <button
                   className={port.summary ? "btn": "btn-disabled"}
                   onClick={() => {
-                    setShowSummary(port.summary);
-                    setShowPopup(true);
+                    const summaryId = "papers" + "-" + showBookKey + "-" + idx;
+                    openSummaryPopup(summaryId, port.summary);
                   }}
                 >
                   Summary
@@ -154,8 +231,8 @@ const PaperShelf = () => {
                 <button
                   className={port.summary ? "btn": "btn-disabled"}
                   onClick={() => {
-                    setShowSummary(port.summary);
-                    setShowPopup(true);
+                    const summaryId = "blogs" + "-" + showBookKey + "-" + idx;
+                    openSummaryPopup(summaryId, port.summary);
                   }}
                 >
                   Summary
@@ -173,7 +250,7 @@ const PaperShelf = () => {
       <div className={showPopup ? "summary-popup" : "popup-disabled"}>
         <div>
           <FontAwesomeIcon
-            onClick={() => setShowPopup(false)}
+            onClick={closeSummaryPopup}
             icon={faClose}
             color={"#e46976"}
             size={"3x"}
