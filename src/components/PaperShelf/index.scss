@@ -260,7 +260,12 @@
 .summary-popup {
   position: fixed;
   width: calc(90% - 150px);
-  height: 90vh;
+  // Required to use dynamic view height because on mobile browsers
+  // the dynamic elements like address bar change the actual view height
+  // dynamically. If vh is used then it computes the height based on
+  // initial view height which causes the popup to cut due to dynamic
+  // elements.
+  height: 90dvh;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
