@@ -146,19 +146,21 @@ const PaperShelf = () => {
                     value={(port.pagesRead / port.totalPages) * 100}
                   />
                 </Box>
-                <button className="btn" onClick={() => {}}>
-                  <span className={"btn-name"}>View</span>
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
-                </button>
-                <button
-                  className={port.summary ? "btn": "btn-disabled"}
-                  onClick={() => {
-                    const summaryId = "books" + "-" + showBookKey + "-" + idx
-                    openSummaryPopup(summaryId, port.summary);
-                  }}
-                >
-                  Summary
-                </button>
+                <div className="button-container">
+                  <button className="btn" onClick={() => {}}>
+                    <span className={"btn-name"}>View</span>
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                  </button>
+                  <button
+                    className={port.summary ? "btn": "btn-disabled"}
+                    onClick={() => {
+                      const summaryId = "books" + "-" + showBookKey + "-" + idx
+                      openSummaryPopup(summaryId, port.summary);
+                    }}
+                  >
+                    Summary
+                  </button>
+                </div>
               </div>
             </div>
           );
@@ -185,21 +187,23 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
-                <a target={"_blank"} rel={"noreferrer"} href={port.link}>
-                  <button className="btn" onClick={() => {}}>
-                    <span className={"btn-name"}>View</span>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                <div className="button-container">
+                  <a target={"_blank"} rel={"noreferrer"} href={port.link}>
+                    <button className="btn" onClick={() => {}}>
+                      <span className={"btn-name"}>View</span>
+                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                    </button>
+                  </a>
+                  <button
+                    className={port.summary ? "btn": "btn-disabled"}
+                    onClick={() => {
+                      const summaryId = "papers" + "-" + showBookKey + "-" + idx;
+                      openSummaryPopup(summaryId, port.summary);
+                    }}
+                  >
+                    Summary
                   </button>
-                </a>
-                <button
-                  className={port.summary ? "btn": "btn-disabled"}
-                  onClick={() => {
-                    const summaryId = "papers" + "-" + showBookKey + "-" + idx;
-                    openSummaryPopup(summaryId, port.summary);
-                  }}
-                >
-                  Summary
-                </button>
+                </div>
               </div>
             </div>
           );
@@ -222,21 +226,23 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
-                <a target={"_blank"} rel={"noreferrer"} href={port.link}>
-                  <button className="btn" onClick={() => {}}>
-                    <span className={"btn-name"}>View</span>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                <div className="button-container">
+                  <a target={"_blank"} rel={"noreferrer"} href={port.link}>
+                    <button className="btn" onClick={() => {}}>
+                      <span className={"btn-name"}>View</span>
+                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+                    </button>
+                  </a>
+                  <button
+                    className={port.summary ? "btn": "btn-disabled"}
+                    onClick={() => {
+                      const summaryId = "blogs" + "-" + showBookKey + "-" + idx;
+                      openSummaryPopup(summaryId, port.summary);
+                    }}
+                  >
+                    Summary
                   </button>
-                </a>
-                <button
-                  className={port.summary ? "btn": "btn-disabled"}
-                  onClick={() => {
-                    const summaryId = "blogs" + "-" + showBookKey + "-" + idx;
-                    openSummaryPopup(summaryId, port.summary);
-                  }}
-                >
-                  Summary
-                </button>
+                </div>
               </div>
             </div>
           );
