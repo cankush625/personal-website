@@ -114,6 +114,17 @@
       background: #ffd700;
     }
 
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-evenly;
+
+      a {
+        text-decoration: none;
+      }
+    }
+
     &:after {
       content: "";
       background: linear-gradient(180deg, #ffd700, #000);
