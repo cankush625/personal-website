@@ -1,6 +1,6 @@
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -24,6 +24,7 @@ const PaperShelf = () => {
   const [showBlogKey, setShowBlogKey] = useState("read");
   const [showPopup, setShowPopup] = useState(false);
   const [showSummary, setShowSummary] = useState({});
+  const popupRef = useRef(null);
 
   useEffect(() => {
     setTimeout(() => {
@@ -38,6 +39,34 @@ const PaperShelf = () => {
 
     showSummaryPopupIfSummaryInQueryParams();
   }, []);
+
+  useEffect(() => {
+    // If popup is opened and clicked outside the popup then close the popup
+    function handleClickOutside(event) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        closeSummaryPopup();
+      }
+    }
+
+    // If popup is open and Esc key is pressed then close the popup
+    function handleEscKey(event) {
+      if (event.key === 'Escape' && showPopup) {
+        closeSummaryPopup();
+      }
+    }
+
+    // Only add the event listener when the popup is shown
+    if (showPopup) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showPopup]);
 
   const getBook = async () => {
     setBook(books);
@@ -253,7 +282,7 @@ const PaperShelf = () => {
 
   return (
     <>
-      <div className={showPopup ? "summary-popup" : "popup-disabled"}>
+      <div className={showPopup ? "summary-popup" : "popup-disabled"} ref={popupRef}>
         <div>
           <FontAwesomeIcon
             onClick={closeSummaryPopup}
