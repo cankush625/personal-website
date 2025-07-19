@@ -48,7 +48,7 @@ const PaperShelf = () => {
       }
     }
 
-    // If popup is open and Esc key is pressed then close the popup
+    // If popup is opened and Esc key is pressed then close the popup
     function handleEscKey(event) {
       if (event.key === 'Escape' && showPopup) {
         closeSummaryPopup();
