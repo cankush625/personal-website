@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import skillCategories from "../../data/skills";
@@ -10,6 +10,7 @@ const Skills = () => {
   const [skill, setSkill] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
   const [showKey, setShowKey] = useState(0);
+  const popupRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -24,6 +25,41 @@ const Skills = () => {
   useEffect(() => {
     getSkill();
   }, []);
+
+  useEffect(() => {
+    // If popup is opened and clicked outside the popup then close the popup
+    function handleClickOutside(event) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        closePopup();
+      }
+    }
+
+    // If popup is opened and Esc key is pressed then close the popup
+    function handleEscKey(event) {
+      if (event.key === 'Escape' && showPopup) {
+        closePopup();
+      }
+    }
+
+    // Only add the event listener when the popup is shown
+    if (showPopup) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleEscKey);
+    }
+
+    // Clean up the event listener
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleEscKey);
+    };
+  }, [showPopup]);
+
+  // Function to close popup and clean URL
+  const closePopup = () => {
+    setShowPopup(false);
+    // Remove query parameters from URL
+    // removeQueryParamFromURL();
+  };
 
   const getSkill = async () => {
     setSkill(skillCategories.map((doc) => doc));
@@ -86,10 +122,10 @@ const Skills = () => {
 
   return (
     <>
-      <div className={showPopup ? "popup" : "popup-disabled"}>
+      <div className={showPopup ? "popup" : "popup-disabled"} ref={popupRef}>
         <div>
           <FontAwesomeIcon
-            onClick={() => setShowPopup(false)}
+            onClick={closePopup}
             icon={faClose}
             color={"#e46976"}
             size={"3x"}
