@@ -32,6 +32,7 @@ const activeDotSx = {
 const connectorSx = { bgcolor: "#334155" };
 
 const Career = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const [letterClass, setLetterClass] = useState("text-animate");
   const titleArray = [
     "C", "a", "r", "e", "e", "r", " ", "T", "i", "m", "e", "l", "i", "n", "e",
@@ -41,6 +42,12 @@ const Career = () => {
     setTimeout(() => {
       setLetterClass("text-animate-hover");
     }, 3000);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
@@ -53,7 +60,7 @@ const Career = () => {
         />
       </h1>
       <div className={"career-timeline"}>
-        <Timeline position="alternate">
+        <Timeline position={isMobile ? "right" : "alternate"}>
           <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
