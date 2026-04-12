@@ -70,6 +70,7 @@
     border-radius: 20px;
     border: 1px solid #334155;
     margin-bottom: 4px;
+    white-space: nowrap;
   }
 
   .position-extra {
@@ -103,6 +104,14 @@
   .active-dot {
     animation: pulse-ring 2s ease-out infinite;
     border-color: #f59e0b !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .career-page {
+    .MuiTimelineOppositeContent-root {
+      display: none;
+    }
   }
 }
 
