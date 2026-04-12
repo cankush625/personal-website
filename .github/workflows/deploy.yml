@@ -24,6 +24,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          CI: false
           REACT_APP_SHOW_INSTAGRAM: ${{ vars.REACT_APP_SHOW_INSTAGRAM }}
 
       - name: Deploy
