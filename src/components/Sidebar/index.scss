@@ -165,7 +165,7 @@
     height: auto;
     min-height: auto;
 
-    ul,
+    ul.social-links,
     nav {
       display: none;
     }
@@ -210,15 +210,34 @@
       right: 15px;
     }
 
-    ul {
-      z-index: 2;
+    ul.social-links {
+      display: flex;
+      flex-direction: row;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      background: rgba(24, 24, 24, 0.3);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 24px;
+      gap: 8px;
+      width: auto;
 
       li a {
         font-size: 20px;
-      }
+        padding: 6px 8px;
 
-      &.mobile-show {
-        display: block;
+        svg {
+          color: #888888;
+        }
+
+        &:hover svg {
+          color: #ffd700;
+        }
       }
     }
   }

@@ -101,7 +101,7 @@ const Sidebar = () => {
           className={"close-icon"}
         />
       </nav>
-      <ul className={showNav ? "mobile-show" : ""}>
+      <ul className="social-links">
         <li>
           <a
             target={"_blank"}
