@@ -173,6 +173,10 @@ const PaperShelf = () => {
                   <LinearProgress
                     variant="determinate"
                     value={(port.pagesRead / port.totalPages) * 100}
+                    sx={{
+                      backgroundColor: "rgba(245,158,11,0.2)",
+                      "& .MuiLinearProgress-bar": { backgroundColor: "#f59e0b" },
+                    }}
                   />
                 </Box>
                 <div className="button-container">
@@ -308,7 +312,7 @@ const PaperShelf = () => {
             />
           </h1>
           <div className={"content-zone"}>
-            <Accordion defaultExpanded className={"content-sections"}>
+            <Accordion defaultExpanded className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="eng-books-content"
@@ -350,7 +354,7 @@ const PaperShelf = () => {
                 </div>
               </AccordionDetails>
             </Accordion>
-            <Accordion className={"content-sections"}>
+            <Accordion className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="research-papers-content"
@@ -392,7 +396,7 @@ const PaperShelf = () => {
                 </div>
               </AccordionDetails>
             </Accordion>
-            <Accordion className={"content-sections"}>
+            <Accordion className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="eng-blogs-content"

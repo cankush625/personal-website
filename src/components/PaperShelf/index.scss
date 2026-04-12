@@ -23,34 +23,41 @@
 
   .content-zone {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
   .content-sections {
-    background-color: #115173;
+    background-color: #1e293b;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s, background-color 0.2s;
 
     h3 {
-      color: #dadada;
+      color: #e2e8f0;
+      margin: 0;
     }
 
     .expand-icon {
-      color: #8d8d8d;
+      color: #94a3b8;
     }
 
     &:hover {
-      background-color: #61dafb;
+      background-color: #253347;
 
       h3 {
-        color: #181818;
+        color: #f1f5f9;
       }
 
       .expand-icon {
-        color: #181818;
+        color: #f1f5f9;
       }
     }
   }
 
   .content-details {
-    background-color: #2f7dab;
+    background-color: #0f172a;
+    padding: 16px 24px 24px;
   }
 }
 
@@ -58,7 +65,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  padding: 20px 0;
+  padding: 16px 0;
 }
 
 .image-box {
@@ -66,9 +73,11 @@
   flex: 1 1 20%;
   height: 300px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 12px;
   max-width: calc(33.3% - 10px);
-  background: linear-gradient(180deg, #153979, #000);
+  background: linear-gradient(180deg, #1e293b, #000);
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    box-shadow 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   .entity-image {
     position: absolute;
@@ -104,8 +113,8 @@
   .description {
     font-size: 14px;
     margin-bottom: 5px;
-    color: #fff;
-    font-weight: 700;
+    color: #cbd5e1;
+    font-weight: 600;
   }
 
   .read-date {
@@ -123,48 +132,52 @@
   }
 
   .authors {
-    font-size: 14px;
+    font-size: 13px;
     margin-bottom: 5px;
-    color: #fff;
-    font-weight: 700;
+    color: #94a3b8;
+    font-weight: 500;
   }
 
   .btn, .btn-disabled {
-    margin-top: 30px;
+    margin-top: 14px;
     margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 0 23px;
-    height: 40px;
-    line-height: 34px;
-    border: 2px solid #ffd700;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #fff;
+    margin-left: 6px;
+    margin-right: 6px;
+    padding: 0 18px;
+    height: 38px;
+    line-height: 36px;
+    border: 1.5px solid #f59e0b;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #f59e0b;
     background: transparent;
     text-transform: uppercase;
     font-weight: 700;
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    letter-spacing: 0.05em;
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 6px;
   }
 
   .btn-disabled {
     cursor: not-allowed;
     pointer-events: none;
-    border: 2px solid #3a371f;
-    color: #393838;
+    border: 1.5px solid #334155;
+    color: #475569;
   }
 
   .btn:hover {
-    transform: translateY(-3px);
-    background: #ffd700;
+    transform: translateY(-2px);
+    background: #f59e0b;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
   }
 
   .btn-name {
-    padding-right: 5px;
+    padding-right: 2px;
   }
 
   .button-container {
@@ -180,7 +193,7 @@
 
   &:after {
     content: "";
-    background: linear-gradient(180deg, #ffd700, #000);
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.6), rgba(0, 0, 0, 0.92));
     position: absolute;
     left: 0;
     right: 0;
@@ -193,8 +206,13 @@
     opacity: 0;
   }
 
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
   &:hover:after {
-    opacity: 0.85;
+    opacity: 1;
   }
 
   &:hover .content {
@@ -210,16 +228,18 @@
 
 .action-section {
   ul {
-    padding: 0;
-    margin: 0;
+    padding: 4px;
+    margin: 0 0 8px;
     display: flex;
     justify-content: flex-start;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 24px;
+    width: fit-content;
+    overflow: visible;
 
     li {
       padding: 0;
       list-style: none;
-      //margin: 0 0 10px;
-      overflow: hidden;
       display: block;
       position: relative;
       clear: both;
@@ -227,28 +247,36 @@
   }
 
   .active-action-button {
-    background: #ffd700;
+    background: #f59e0b;
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+
+    &:hover {
+      background: #f59e0b;
+      color: #0f172a;
+    }
   }
 }
 
 .action-button {
-  margin: 10px;
-  padding: 0 23px;
-  height: 40px;
-  line-height: 34px;
-  border: 2px solid #ffd700;
-  border-radius: 10px;
-  font-size: 14px;
-  color: #fff;
+  margin: 2px 4px;
+  padding: 0 20px;
+  height: 36px;
+  line-height: 36px;
+  border: none;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #94a3b8;
   background: transparent;
   text-transform: uppercase;
   font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  letter-spacing: 0.05em;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   cursor: pointer;
-  box-shadow: 3px 3px 3px #4d4d4e;
 
   &:hover {
-    background: #ffd700;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.08);
   }
 }
 
@@ -260,11 +288,6 @@
 .summary-popup {
   position: fixed;
   width: calc(90% - 150px);
-  // Required to use dynamic view height because on mobile browsers
-  // the dynamic elements like address bar change the actual view height
-  // dynamically. If vh is used then it computes the height based on
-  // initial view height which causes the popup to cut due to dynamic
-  // elements.
   height: 90dvh;
   top: 50%;
   left: 50%;
@@ -283,8 +306,6 @@
   display: block;
   position: sticky;
   float: right;
-  // Top and right are need to set otherwise the close icon doesn't
-  // remain sticky on scroll.
   top: 0;
   right: 0;
 
@@ -300,8 +321,6 @@
 .summary-title {
   font-size: 3rem;
   margin-top: 3rem;
-  // This is required to clear the unintentional effect cause by
-  // using float: right property on close icon.
   clear: both;
 }
 
