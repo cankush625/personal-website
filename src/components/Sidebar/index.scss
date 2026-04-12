@@ -2,7 +2,7 @@
   background: #181818;
   width: 60px;
   height: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   z-index: 3;
   min-height: 500px;
@@ -123,7 +123,7 @@
 
     a.active {
       svg {
-        color: #ffd700;
+        color: #ffd700 !important;
       }
     }
   }
