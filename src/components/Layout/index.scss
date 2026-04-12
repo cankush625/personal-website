@@ -82,6 +82,14 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .mobile-scroll-section {
+    padding-bottom: 80px;
+
+    & + .mobile-scroll-section {
+      border-top: 1px solid rgba(255, 215, 0, 0.08);
+    }
+  }
+
   .page {
     position: initial;
   }
