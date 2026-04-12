@@ -74,7 +74,6 @@ const Skills = () => {
               <img src={port.image} className="skill-image" alt="skill" />
               <div className="content">
                 <p className="title">{port.name}</p>
-                <h4 className="description">{port.description}</h4>
                 <div className="button-container">
                   <button
                     className="btn"
@@ -104,11 +103,11 @@ const Skills = () => {
               <div className={"factor-skills-container"}>
                 {port.skillList?.map((skill, idx) => {
                   return (
-                    <div>
-                      <div className={"skill-logo"} key={idx}>
+                    <div className={"skill-chip"} key={idx}>
+                      <div className={"skill-logo"}>
                         {skill?.logo}
                       </div>
-                      {/*<div className={"skill-name"}>{skill?.name}</div>*/}
+                      <div className={"skill-name"}>{skill?.name}</div>
                     </div>
                   );
                 })}

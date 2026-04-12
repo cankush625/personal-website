@@ -60,14 +60,14 @@
   }
 }
 
-.images-container {
+.paper-shelf-page .images-container {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
   padding: 16px 0;
 }
 
-.image-box {
+.paper-shelf-page .image-box {
   position: relative;
   flex: 1 1 20%;
   height: 300px;
