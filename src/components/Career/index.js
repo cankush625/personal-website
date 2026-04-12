@@ -13,26 +13,28 @@ import Typography from "@mui/material/Typography";
 import EngineeringCollegeLogo from "../../assets/images/career/engineering_college_logo.png";
 import PhoenixgenSystemsLogo from "../../assets/images/career/phoenixgen_systems_logo.png";
 import VelotioLogo from "../../assets/images/career/velotio_logo.svg";
-import GyaanAILogo from "../../assets/images/career/gyaan_logo.png";
+import MaxIQLogo from "../../assets/images/career/getmaxiq_logo.png";
+
+const dotSx = {
+  borderColor: "#334155",
+  bgcolor: "#0d1f33",
+  boxShadow: "none",
+  padding: "6px",
+};
+
+const activeDotSx = {
+  borderColor: "#f59e0b",
+  bgcolor: "#0d1f33",
+  boxShadow: "none",
+  padding: "6px",
+};
+
+const connectorSx = { bgcolor: "#334155" };
 
 const Career = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const titleArray = [
-    "C",
-    "a",
-    "r",
-    "e",
-    "e",
-    "r",
-    " ",
-    "T",
-    "i",
-    "m",
-    "e",
-    "l",
-    "i",
-    "n",
-    "e",
+    "C", "a", "r", "e", "e", "r", " ", "T", "i", "m", "e", "l", "i", "n", "e",
   ];
 
   useEffect(() => {
@@ -60,38 +62,28 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
-              <TimelineDot color="primary" variant="outlined">
-                <img
-                  src={GyaanAILogo}
-                  alt="gyaan logo"
-                  className={"timeline-dot-image"}
-                />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
+              <TimelineDot variant="outlined" className={"active-dot"} sx={activeDotSx}>
+                <img src={MaxIQLogo} alt="maxiq logo" className={"timeline-dot-image"} />
               </TimelineDot>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <Typography
-                variant="h5"
-                component="span"
-                className={"position-title"}
-              >
-                Senior Software Engineer
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                Gyaan AI, Pune
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                November 2023 - Present
-              </Typography>
+              <div className={"timeline-entry-card"}>
+                <Typography variant="h6" component="span" className={"position-title"}>
+                  Senior Software Engineer
+                </Typography>
+                <Typography variant="body2" className={"position-company"}>
+                  MaxIQ, Pune
+                </Typography>
+                <Typography variant="body2" className={"position-extra"}>
+                  Previously known as Gyaan AI
+                </Typography>
+                <span className={"date-pill"}>November 2023 - Present</span>
+              </div>
             </TimelineContent>
           </TimelineItem>
+
           <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
@@ -99,38 +91,25 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
-              <TimelineDot color="primary" variant="outlined">
-                <img
-                  src={VelotioLogo}
-                  alt="velotio logo"
-                  className={"timeline-dot-image"}
-                />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
+              <TimelineDot variant="outlined" sx={dotSx}>
+                <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
               </TimelineDot>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <Typography
-                variant="h5"
-                component="span"
-                className={"position-title"}
-              >
-                Software Engineer
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                Velotio Technologies, Pune
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                March 2022 - November 2023
-              </Typography>
+              <div className={"timeline-entry-card"}>
+                <Typography variant="h6" component="span" className={"position-title"}>
+                  Software Engineer
+                </Typography>
+                <Typography variant="body2" className={"position-company"}>
+                  Velotio Technologies, Pune
+                </Typography>
+                <span className={"date-pill"}>March 2022 - November 2023</span>
+              </div>
             </TimelineContent>
           </TimelineItem>
+
           <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
@@ -139,38 +118,25 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
-              <TimelineDot color="primary" variant="outlined">
-                <img
-                  src={VelotioLogo}
-                  alt="velotio logo"
-                  className={"timeline-dot-image"}
-                />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
+              <TimelineDot variant="outlined" sx={dotSx}>
+                <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
               </TimelineDot>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <Typography
-                variant="h5"
-                component="span"
-                className={"position-title"}
-              >
-                Associate Software Engineer
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                Velotio Technologies, Pune
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                July 2021 - March 2022
-              </Typography>
+              <div className={"timeline-entry-card"}>
+                <Typography variant="h6" component="span" className={"position-title"}>
+                  Associate Software Engineer
+                </Typography>
+                <Typography variant="body2" className={"position-company"}>
+                  Velotio Technologies, Pune
+                </Typography>
+                <span className={"date-pill"}>July 2021 - March 2022</span>
+              </div>
             </TimelineContent>
           </TimelineItem>
+
           <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
@@ -179,38 +145,25 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
-              <TimelineDot color="primary" variant="outlined">
-                <img
-                  src={PhoenixgenSystemsLogo}
-                  alt="phoenixgen systems logo"
-                  className={"timeline-dot-image"}
-                />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
+              <TimelineDot variant="outlined" sx={dotSx}>
+                <img src={PhoenixgenSystemsLogo} alt="phoenixgen systems logo" className={"timeline-dot-image"} />
               </TimelineDot>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <Typography
-                variant="h5"
-                component="span"
-                className={"position-title"}
-              >
-                SDE Intern
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                Phoenixgen Systems
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                April 2020 - October 2020
-              </Typography>
+              <div className={"timeline-entry-card"}>
+                <Typography variant="h6" component="span" className={"position-title"}>
+                  SDE Intern
+                </Typography>
+                <Typography variant="body2" className={"position-company"}>
+                  Phoenixgen Systems
+                </Typography>
+                <span className={"date-pill"}>April 2020 - October 2020</span>
+              </div>
             </TimelineContent>
           </TimelineItem>
+
           <TimelineItem className={"career-timeline-item"}>
             <TimelineOppositeContent
               sx={{ m: "auto 0" }}
@@ -219,41 +172,28 @@ const Career = () => {
               color="gray"
             ></TimelineOppositeContent>
             <TimelineSeparator>
-              <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={"career-timeline-connector"}
-              />
-              <TimelineDot color="primary" variant="outlined">
-                <img
-                  src={EngineeringCollegeLogo}
-                  alt="engineering college logo"
-                  className={"timeline-dot-image"}
-                />
+              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
+              <TimelineDot variant="outlined" sx={dotSx}>
+                <img src={EngineeringCollegeLogo} alt="engineering college logo" className={"timeline-dot-image"} />
               </TimelineDot>
               <TimelineConnector
-                sx={{ bgcolor: "#ffd700" }}
-                className={
-                  "fading-timeline-connector career-timeline-connector"
-                }
+                sx={connectorSx}
+                className={"fading-timeline-connector career-timeline-connector"}
               />
             </TimelineSeparator>
             <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <Typography
-                variant="h5"
-                component="span"
-                className={"position-title"}
-              >
-                B. Tech (Computer Engineering)
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                G. H. Raisoni College of Engineering and Management, Pune
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                2017 - 2021
-              </Typography>
-              <Typography variant="h6" className={"position-details"}>
-                CGPA: 9.61
-              </Typography>
+              <div className={"timeline-entry-card"}>
+                <Typography variant="h6" component="span" className={"position-title"}>
+                  B. Tech (Computer Engineering)
+                </Typography>
+                <Typography variant="body2" className={"position-company"}>
+                  G. H. Raisoni College of Engineering and Management, Pune
+                </Typography>
+                <span className={"date-pill"}>2017 - 2021</span>
+                <Typography variant="body2" className={"position-extra"}>
+                  CGPA: 9.61
+                </Typography>
+              </div>
             </TimelineContent>
           </TimelineItem>
         </Timeline>
