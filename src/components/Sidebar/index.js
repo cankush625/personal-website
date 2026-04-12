@@ -1,5 +1,5 @@
 import "./index.scss";
-import { Link, NavLink } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/logo.png";
 // import LogoSubtitle from "../../assets/images/logo_subtitle.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,57 +25,74 @@ import { useState } from "react";
 
 const SHOW_INSTAGRAM = process.env.REACT_APP_SHOW_INSTAGRAM === "true";
 
-const Sidebar = ({ isMobile = false }) => {
+const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // On mobile: anchor links that scroll to section; on desktop: router NavLinks
-  const navLink = ({ id, to, icon, className, exact }) => {
-    if (isMobile) {
-      return (
-        <a
-          href={`#${id}`}
-          className={className}
-          onClick={() => setShowNav(false)}
-        >
-          <FontAwesomeIcon icon={icon} color="#4d4d4e" />
-        </a>
-      );
-    }
-    return (
-      <NavLink
-        onClick={() => setShowNav(false)}
-        exact={exact}
-        activeclassname="active"
-        className={className}
-        to={to}
-      >
-        <FontAwesomeIcon icon={icon} color="#4d4d4e" />
-      </NavLink>
-    );
+  const isActive = (path) => location.pathname === path;
+
+  const handleNavClick = (e, sectionId, path) => {
+    e.preventDefault();
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    navigate(path, { replace: true });
+    setShowNav(false);
   };
 
   return (
     <div className="nav-bar">
-      {isMobile ? (
-        <a className="logo" href="#home">
-          <img src={Logo} alt="logo" />
-        </a>
-      ) : (
-        <Link className="logo" to="/">
-          <img src={Logo} alt="logo" />
-          {/*<img className="sub-logo" src={LogoSubtitle} alt="logo-subtitle"/>*/}
-        </Link>
-      )}
+      <a className="logo" href="#home" onClick={(e) => handleNavClick(e, "home", "/")}>
+        <img src={Logo} alt="logo" />
+        {/*<img className="sub-logo" src={LogoSubtitle} alt="logo-subtitle"/>*/}
+      </a>
       <nav className={showNav ? "mobile-show" : ""}>
-        {navLink({ id: "home", to: "/", icon: faHome, exact: "true" })}
+        <a
+          href="#home"
+          className={isActive("/") ? "active" : ""}
+          onClick={(e) => handleNavClick(e, "home", "/")}
+        >
+          <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+        </a>
         {/*Hidden About section because the about section content has been*/}
         {/*moved to home page*/}
-        {/*{navLink({ id: "about", to: "/about", icon: faUser, className: "about-link" })}*/}
-        {navLink({ id: "skills", to: "/skills", icon: faCogs, className: "skills-link" })}
-        {navLink({ id: "career", to: "/career", icon: faBriefcase, className: "career-link" })}
-        {navLink({ id: "paper-shelf", to: "/paper-shelf", icon: faBook, className: "paper-shelf-link" })}
-        {navLink({ id: "art-gallery", to: "/art-gallery", icon: faImages, className: "art-gallery-link" })}
-        {navLink({ id: "contact", to: "/contact", icon: faEnvelope, className: "contact-link" })}
+        {/*<a href="#about" className={`about-link${isActive("/about") ? " active" : ""}`} onClick={(e) => handleNavClick(e, "about", "/about")}>*/}
+        {/*  <FontAwesomeIcon icon={faUser} color="#4d4d4e" />*/}
+        {/*</a>*/}
+        <a
+          href="#skills"
+          className={`skills-link${isActive("/skills") ? " active" : ""}`}
+          onClick={(e) => handleNavClick(e, "skills", "/skills")}
+        >
+          <FontAwesomeIcon icon={faCogs} color="#4d4d4e" />
+        </a>
+        <a
+          href="#career"
+          className={`career-link${isActive("/career") ? " active" : ""}`}
+          onClick={(e) => handleNavClick(e, "career", "/career")}
+        >
+          <FontAwesomeIcon icon={faBriefcase} color="#4d4d4e" />
+        </a>
+        <a
+          href="#paper-shelf"
+          className={`paper-shelf-link${isActive("/paper-shelf") ? " active" : ""}`}
+          onClick={(e) => handleNavClick(e, "paper-shelf", "/paper-shelf")}
+        >
+          <FontAwesomeIcon icon={faBook} color="#4d4d4e" />
+        </a>
+        <a
+          href="#art-gallery"
+          className={`art-gallery-link${isActive("/art-gallery") ? " active" : ""}`}
+          onClick={(e) => handleNavClick(e, "art-gallery", "/art-gallery")}
+        >
+          <FontAwesomeIcon icon={faImages} color="#4d4d4e" />
+        </a>
+        <a
+          href="#contact"
+          className={`contact-link${isActive("/contact") ? " active" : ""}`}
+          onClick={(e) => handleNavClick(e, "contact", "/contact")}
+        >
+          <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+        </a>
         <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}
