@@ -169,15 +169,30 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
-                <Box sx={{ width: "100%", display: "inline-block" }}>
+                <Box sx={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
                   <LinearProgress
                     variant="determinate"
                     value={(port.pagesRead / port.totalPages) * 100}
-                    sx={{
-                      backgroundColor: "rgba(245,158,11,0.2)",
-                      "& .MuiLinearProgress-bar": { backgroundColor: "#f59e0b" },
-                    }}
+                    sx={
+                      port.pagesRead === port.totalPages
+                        ? {
+                            flex: 1,
+                            backgroundColor: "rgba(5,115,12,0.4)",
+                            "& .MuiLinearProgress-bar": { backgroundColor: "#05730c" },
+                          }
+                        : {
+                            flex: 1,
+                            backgroundColor: "rgba(245,158,11,0.2)",
+                            "& .MuiLinearProgress-bar": { backgroundColor: "#f59e0b" },
+                          }
+                    }
                   />
+                  {port.pagesRead === port.totalPages && (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="8" cy="8" r="7.5" stroke="#05730c" fill="rgba(5,115,12,0.2)" />
+                      <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#05730c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
                 </Box>
                 <div className="button-container">
                   <button className="btn" onClick={() => {}}>
