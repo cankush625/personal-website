@@ -16,11 +16,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
+  faInstagram,
   faLinkedin,
   faMedium,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
+
+const SHOW_INSTAGRAM = process.env.REACT_APP_SHOW_INSTAGRAM === "true";
 
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);
@@ -135,6 +138,17 @@ const Sidebar = () => {
             <FontAwesomeIcon icon={faTwitter} color={"#4d4d4e"} />
           </a>
         </li>
+        {SHOW_INSTAGRAM && (
+          <li>
+            <a
+              target={"_blank"}
+              rel={"noreferrer"}
+              href={"https://instagram.com/ankushchavan_"}
+            >
+              <FontAwesomeIcon icon={faInstagram} color={"#4d4d4e"} />
+            </a>
+          </li>
+        )}
       </ul>
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}

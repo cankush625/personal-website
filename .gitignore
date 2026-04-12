@@ -24,3 +24,6 @@ yarn-error.log*
 
 # Intellij IDEs
 .idea/
+
+# Ignore env files
+.env
