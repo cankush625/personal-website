@@ -312,7 +312,7 @@ const PaperShelf = () => {
             />
           </h1>
           <div className={"content-zone"}>
-            <Accordion defaultExpanded className={"content-sections"} sx={{ backgroundImage: "none" }}>
+            <Accordion defaultExpanded disableGutters square className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="eng-books-content"
@@ -354,7 +354,7 @@ const PaperShelf = () => {
                 </div>
               </AccordionDetails>
             </Accordion>
-            <Accordion className={"content-sections"} sx={{ backgroundImage: "none" }}>
+            <Accordion disableGutters square className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="research-papers-content"
@@ -396,7 +396,7 @@ const PaperShelf = () => {
                 </div>
               </AccordionDetails>
             </Accordion>
-            <Accordion className={"content-sections"} sx={{ backgroundImage: "none" }}>
+            <Accordion disableGutters className={"content-sections"} sx={{ backgroundImage: "none" }}>
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
                 aria-controls="eng-blogs-content"
