@@ -107,11 +107,11 @@ h2 {
     .logo-container {
       position: relative;
       width: 100px;
-      height: auto;
-      top: 50px;
+      height: 100px;
+      top: 0;
       right: 0;
       box-sizing: border-box;
-      margin: auto;
+      margin: 50px auto 0 auto;
       left: 0;
 
       svg {
