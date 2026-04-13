@@ -333,13 +333,13 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .paper-shelf-page {
+  .paper-shelf-page .image-box {
     .title {
       font-size: 16px;
       line-height: 18px;
-      overflow: visible;
+      overflow: hidden;
       text-overflow: ellipsis;
-      white-space: unset;
+      white-space: nowrap;
     }
 
     .description {
@@ -353,17 +353,23 @@
     .content {
       bottom: 0;
     }
+
   }
 }
 
 @media screen and (max-width: 800px) {
-  .paper-shelf-page {
+  .paper-shelf-page .image-box {
     .title {
       font-size: 14px;
       line-height: 16px;
-      overflow: visible;
+      overflow: hidden;
       text-overflow: ellipsis;
-      white-space: unset;
+      white-space: nowrap;
+    }
+
+    .button-container {
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 
