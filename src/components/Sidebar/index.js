@@ -101,55 +101,57 @@ const Sidebar = () => {
           className={"close-icon"}
         />
       </nav>
-      <ul className="social-links">
-        <li>
-          <a
-            target={"_blank"}
-            rel={"noreferrer"}
-            href={"https://linkedin.com/in/ankushchavan"}
-          >
-            <FontAwesomeIcon icon={faLinkedin} color={"#4d4d4e"} />
-          </a>
-        </li>
-        <li>
-          <a
-            target={"_blank"}
-            rel={"noreferrer"}
-            href={"https://github.com/cankush625"}
-          >
-            <FontAwesomeIcon icon={faGithub} color={"#4d4d4e"} />
-          </a>
-        </li>
-        <li>
-          <a
-            target={"_blank"}
-            rel={"noreferrer"}
-            href={"https://ankush-chavan.medium.com/"}
-          >
-            <FontAwesomeIcon icon={faMedium} color={"#4d4d4e"} />
-          </a>
-        </li>
-        <li>
-          <a
-            target={"_blank"}
-            rel={"noreferrer"}
-            href={"https://twitter.com/TheNameIsAnkush"}
-          >
-            <FontAwesomeIcon icon={faTwitter} color={"#4d4d4e"} />
-          </a>
-        </li>
-        {SHOW_INSTAGRAM && (
+      <div className="social-chip-anchor">
+        <ul className="social-links">
           <li>
             <a
               target={"_blank"}
               rel={"noreferrer"}
-              href={"https://instagram.com/ankushchavan_"}
+              href={"https://linkedin.com/in/ankushchavan"}
             >
-              <FontAwesomeIcon icon={faInstagram} color={"#4d4d4e"} />
+              <FontAwesomeIcon icon={faLinkedin} color={"#4d4d4e"} />
             </a>
           </li>
-        )}
-      </ul>
+          <li>
+            <a
+              target={"_blank"}
+              rel={"noreferrer"}
+              href={"https://github.com/cankush625"}
+            >
+              <FontAwesomeIcon icon={faGithub} color={"#4d4d4e"} />
+            </a>
+          </li>
+          <li>
+            <a
+              target={"_blank"}
+              rel={"noreferrer"}
+              href={"https://ankush-chavan.medium.com/"}
+            >
+              <FontAwesomeIcon icon={faMedium} color={"#4d4d4e"} />
+            </a>
+          </li>
+          <li>
+            <a
+              target={"_blank"}
+              rel={"noreferrer"}
+              href={"https://twitter.com/TheNameIsAnkush"}
+            >
+              <FontAwesomeIcon icon={faTwitter} color={"#4d4d4e"} />
+            </a>
+          </li>
+          {SHOW_INSTAGRAM && (
+            <li>
+              <a
+                target={"_blank"}
+                rel={"noreferrer"}
+                href={"https://instagram.com/ankushchavan_"}
+              >
+                <FontAwesomeIcon icon={faInstagram} color={"#4d4d4e"} />
+              </a>
+            </li>
+          )}
+        </ul>
+      </div>
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}
         icon={faBars}
