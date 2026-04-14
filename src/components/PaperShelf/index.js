@@ -302,19 +302,14 @@ const PaperShelf = () => {
   return (
     <>
       <div className={showPopup ? "summary-popup" : "popup-disabled"} ref={popupRef}>
-        <div>
-          <FontAwesomeIcon
-            onClick={closeSummaryPopup}
-            icon={faClose}
-            color={"#e46976"}
-            size={"3x"}
-            className={showPopup ? "close-summary-popup-icon" : ""}
-          />
-          <h1 className={"summary-title"}>{showSummary?.title}</h1>
-          <hr/>
-          <div className={"summary-section"}>
-            <p>{parse(showSummary.summary ? showSummary.summary : "")}</p>
-          </div>
+        <FontAwesomeIcon
+          onClick={closeSummaryPopup}
+          icon={faClose}
+          className={"close-summary-popup-icon"}
+        />
+        <h1 className={"summary-title"}>{showSummary?.title}</h1>
+        <div className={"summary-section"}>
+          {parse(showSummary.summary ? showSummary.summary : "")}
         </div>
       </div>
       <div className={"container paper-shelf-page"}>
