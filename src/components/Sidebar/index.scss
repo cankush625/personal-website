@@ -165,7 +165,7 @@
     height: auto;
     min-height: auto;
 
-    ul.social-links,
+    .social-chip-anchor,
     nav {
       display: none;
     }
@@ -210,14 +210,25 @@
       right: 15px;
     }
 
+    .social-chip-anchor {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100dvh;
+      pointer-events: none;
+      z-index: 10;
+    }
+
     ul.social-links {
       display: flex;
       flex-direction: row;
-      position: fixed;
+      position: absolute;
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 10;
+      pointer-events: auto;
       background: rgba(24, 24, 24, 0.3);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
