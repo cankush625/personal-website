@@ -220,12 +220,31 @@
   margin-right: auto;
 }
 
+.art-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.art-lightbox-img {
+  max-width: 100vw;
+  max-height: 100dvh;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 .art-full-popup {
   height: 65dvh;
   max-width: 100%;
   border: none;
   border-radius: 8px;
   object-fit: contain;
+  cursor: zoom-in;
 }
 
 @media screen and (max-width: 1200px) {
