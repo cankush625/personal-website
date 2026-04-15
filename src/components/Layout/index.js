@@ -43,7 +43,11 @@ const Layout = () => {
     const behavior = isFirstRender.current ? "auto" : "smooth";
     isFirstRender.current = false;
     setTimeout(() => {
-      document.getElementById(sectionId)?.scrollIntoView({ behavior });
+      if (sectionId === "home") {
+        window.scrollTo({ top: 0, behavior });
+      } else {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior });
+      }
     }, 50);
   }, [location.pathname]);
 
