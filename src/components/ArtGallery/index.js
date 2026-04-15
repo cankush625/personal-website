@@ -9,6 +9,7 @@ const ArtGallery = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const [art, setArt] = useState([]);
   const [showPopup, setShowPopup] = useState(false);
+  const [showFullImage, setShowFullImage] = useState(false);
   const [showKey, setShowKey] = useState(0);
   const popupRef = useRef(null);
 
@@ -57,6 +58,7 @@ const ArtGallery = () => {
   // Function to close popup and clean URL
   const closePopup = () => {
     setShowPopup(false);
+    setShowFullImage(false);
     // Remove query parameters from URL
     // removeQueryParamFromURL();
   };
@@ -99,6 +101,11 @@ const ArtGallery = () => {
 
   return (
     <>
+      {showFullImage && (
+        <div className="art-lightbox" onClick={() => setShowFullImage(false)}>
+          <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />
+        </div>
+      )}
       <div className={showPopup ? "art-popup" : "popup-disabled"} ref={popupRef}>
         <div>
           <FontAwesomeIcon
@@ -114,6 +121,7 @@ const ArtGallery = () => {
               src={art[showKey]?.image}
               alt={"art"}
               className={"art-full-popup"}
+              onClick={() => setShowFullImage(true)}
             />
           </div>
         </div>
