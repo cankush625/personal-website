@@ -164,26 +164,45 @@
 .art-popup {
   position: fixed;
   width: calc(90% - 150px);
-  height: 90vh;
+  max-height: 85dvh;
+  height: fit-content;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #edefef;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #1e293b;
+  padding: 28px;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   z-index: 1000;
+  overflow: auto;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  h1 {
+    color: #f1f5f9;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin: 0 0 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #334155;
+    text-align: center;
+  }
 }
 
 .close-popup-icon {
   display: block;
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
 
-  &:hover {
-    color: #cc0707;
+  &:hover svg {
+    color: #ef4444 !important;
   }
 }
 
@@ -202,9 +221,11 @@
 }
 
 .art-full-popup {
-  height: 80vh;
-  border: 5px solid #181818;
-  max-width: calc(85% - 150px);
+  height: 65dvh;
+  max-width: 100%;
+  border: none;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 @media screen and (max-width: 1200px) {
@@ -213,8 +234,10 @@
   }
 
   .art-popup {
-    height: max-content;
-    width: 70vw;
+    width: calc(100vw - 48px);
+    max-height: 85dvh;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .arts-section {
@@ -222,10 +245,11 @@
   }
 
   .art-full-popup {
-    max-height: 48vh;
-    max-width: 68vw;
+    max-height: 55dvh;
+    max-width: 100%;
     height: auto;
     width: auto;
+    border-radius: 6px;
   }
 }
 

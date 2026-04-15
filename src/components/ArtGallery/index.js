@@ -104,8 +104,8 @@ const ArtGallery = () => {
           <FontAwesomeIcon
             onClick={closePopup}
             icon={faClose}
-            color={"#e46976"}
-            size={"3x"}
+            color={"#94a3b8"}
+            size={"lg"}
             className={showPopup ? "close-popup-icon" : ""}
           />
           <h1>{art[showKey]?.name}</h1>
