@@ -124,7 +124,14 @@ const handleTouchEnd = (e) => {
       <div className="images-container">
         {arts.map((port, idx) => {
           return (
-            <div className="image-box" key={idx}>
+            <div
+              className="image-box"
+              key={idx}
+              onClick={() => {
+                setShowKey(idx);
+                setShowPopup(true);
+              }}
+            >
               <img src={port.image} className="art-image" alt="art" />
               <div className="image-date">
                 <p>{port.creationDate}</p>
@@ -132,17 +139,6 @@ const handleTouchEnd = (e) => {
               <div className="content">
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
-                <div className="button-container">
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      setShowKey(idx);
-                      setShowPopup(true);
-                    }}
-                  >
-                    View
-                  </button>
-                </div>
               </div>
             </div>
           );
