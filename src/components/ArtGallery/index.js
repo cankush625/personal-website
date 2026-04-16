@@ -164,8 +164,6 @@ const handleTouchEnd = (e) => {
           <FontAwesomeIcon
             onClick={closePopup}
             icon={faClose}
-            color={"#94a3b8"}
-            size={"lg"}
             className={showPopup ? "close-popup-icon" : ""}
           />
           <h1 key={`title-${showKey}`} className={`art-slide-in-${slideDirection}`}>{art[showKey]?.name}</h1>

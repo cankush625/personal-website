@@ -311,11 +311,12 @@
 .close-summary-popup-icon {
   display: block;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 1rem;
+  right: 1rem;
   cursor: pointer;
   color: #94a3b8;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
+  transition: color 0.2s ease;
 
   &:hover {
     color: #ef4444;

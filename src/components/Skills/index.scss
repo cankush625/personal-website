@@ -152,12 +152,15 @@
 .close-popup-icon {
   display: block;
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #94a3b8;
   cursor: pointer;
+  transition: color 0.2s ease;
 
   &:hover {
-    color: #cc0707;
+    color: #ef4444;
   }
 }
 

@@ -122,8 +122,6 @@ const Skills = () => {
           <FontAwesomeIcon
             onClick={closePopup}
             icon={faClose}
-            color={"#e46976"}
-            size={"3x"}
             className={showPopup ? "close-popup-icon" : ""}
           />
           <h1>{skill[showKey]?.name}</h1>
