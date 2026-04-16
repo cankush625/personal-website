@@ -48,33 +48,34 @@
 
     .content {
       position: absolute;
-      width: calc(100% - 40px);
+      width: 100%;
       z-index: 3;
-      padding: 10px 20px;
+      padding: 2rem 1.25rem 0.75rem;
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
       background: linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.2) 0,
-        rgba(0, 0, 0, 1)
+        transparent 0%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 1) 100%
       );
-      bottom: -70px;
+      bottom: 0;
     }
 
     .title {
       margin-bottom: 0;
       margin-top: 0;
       color: #fff;
-      font-size: 24px;
+      font-size: 1.75rem;
       font-weight: 500;
-      line-height: 28px;
+      line-height: 2rem;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
     .description {
-      font-size: 14px;
-      margin-bottom: 5px;
+      font-size: 0.875rem;
+      margin-bottom: 0.3rem;
       color: #fff;
       font-weight: 700;
     }
@@ -114,7 +115,12 @@
 
     &:hover .content {
       bottom: 0;
-      background: transparent;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.6) 40%,
+        rgba(0, 0, 0, 0.85) 100%
+      );
     }
 
     &:hover .title {
