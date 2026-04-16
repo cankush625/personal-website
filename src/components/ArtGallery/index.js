@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import artCategories from "../../data/arts";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { faClose, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ArtGallery = () => {
@@ -11,7 +11,11 @@ const ArtGallery = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [showFullImage, setShowFullImage] = useState(false);
   const [showKey, setShowKey] = useState(0);
+  const [slideDirection, setSlideDirection] = useState('right');
   const popupRef = useRef(null);
+  const touchStartXRef = useRef(null);
+  const wheelCooldownRef = useRef(false);
+  const wheelResetTimerRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,24 +40,72 @@ const ArtGallery = () => {
     }
 
     // If popup is opened and Esc key is pressed then close the popup
+    // Arrow keys navigate between paintings
     function handleEscKey(event) {
       if (event.key === 'Escape' && showPopup) {
         closePopup();
+      } else if (event.key === 'ArrowRight' && showPopup) {
+        navigateNext();
+      } else if (event.key === 'ArrowLeft' && showPopup) {
+        navigatePrev();
       }
+    }
+
+    function handleWheel(event) {
+      if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) return;
+      event.preventDefault();
+      if (wheelCooldownRef.current) {
+        // Keep pushing out the reset while gesture is still active
+        clearTimeout(wheelResetTimerRef.current);
+        wheelResetTimerRef.current = setTimeout(() => {
+          wheelCooldownRef.current = false;
+        }, 400);
+        return;
+      }
+      wheelCooldownRef.current = true;
+      wheelResetTimerRef.current = setTimeout(() => {
+        wheelCooldownRef.current = false;
+      }, 400);
+      event.deltaX > 0 ? navigateNext() : navigatePrev();
     }
 
     // Only add the event listener when the popup is shown
     if (showPopup) {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('keydown', handleEscKey);
+      document.addEventListener('wheel', handleWheel, { passive: false });
     }
 
     // Clean up the event listener
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('keydown', handleEscKey);
+      document.removeEventListener('wheel', handleWheel);
     };
-  }, [showPopup]);
+  }, [showPopup, art.length]);
+
+  const navigateNext = () => {
+    setSlideDirection('right');
+    setShowKey((prev) => (prev + 1) % art.length);
+  };
+
+  const navigatePrev = () => {
+    setSlideDirection('left');
+    setShowKey((prev) => (prev - 1 + art.length) % art.length);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartXRef.current = e.touches[0].clientX;
+  };
+
+const handleTouchEnd = (e) => {
+    if (touchStartXRef.current === null) return;
+    const delta = touchStartXRef.current - e.changedTouches[0].clientX;
+    if (Math.abs(delta) > 50) {
+      delta > 0 ? navigateNext() : navigatePrev();
+    }
+    touchStartXRef.current = null;
+  };
 
   // Function to close popup and clean URL
   const closePopup = () => {
@@ -106,7 +158,12 @@ const ArtGallery = () => {
           <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />
         </div>
       )}
-      <div className={showPopup ? "art-popup" : "popup-disabled"} ref={popupRef}>
+      <div
+        className={showPopup ? "art-popup" : "popup-disabled"}
+        ref={popupRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div>
           <FontAwesomeIcon
             onClick={closePopup}
@@ -115,14 +172,24 @@ const ArtGallery = () => {
             size={"lg"}
             className={showPopup ? "close-popup-icon" : ""}
           />
-          <h1>{art[showKey]?.name}</h1>
+          <h1 key={`title-${showKey}`} className={`art-slide-in-${slideDirection}`}>{art[showKey]?.name}</h1>
           <div className={"arts-section"}>
             <img
+              key={showKey}
               src={art[showKey]?.image}
               alt={"art"}
-              className={"art-full-popup"}
+              className={`art-full-popup art-slide-in-${slideDirection}`}
               onClick={() => setShowFullImage(true)}
             />
+          </div>
+          <div className="art-nav">
+            <button className="art-nav-btn" onClick={navigatePrev} aria-label="Previous painting">
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </button>
+            <span className="art-nav-counter">{showKey + 1} / {art.length}</span>
+            <button className="art-nav-btn" onClick={navigateNext} aria-label="Next painting">
+              <FontAwesomeIcon icon={faChevronRight} />
+            </button>
           </div>
         </div>
       </div>
