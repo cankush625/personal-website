@@ -13,6 +13,7 @@ const ArtGallery = () => {
   const [showKey, setShowKey] = useState(0);
   const [slideDirection, setSlideDirection] = useState('right');
   const popupRef = useRef(null);
+  const lightboxRef = useRef(null);
   const touchStartXRef = useRef(null);
   const wheelCooldownRef = useRef(false);
   const wheelResetTimerRef = useRef(null);
@@ -34,6 +35,7 @@ const ArtGallery = () => {
   useEffect(() => {
     // If popup is opened and clicked outside the popup then close the popup
     function handleClickOutside(event) {
+      if (lightboxRef.current && lightboxRef.current.contains(event.target)) return;
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         closePopup();
       }
@@ -150,7 +152,7 @@ const handleTouchEnd = (e) => {
   return (
     <>
       {showFullImage && (
-        <div className="art-lightbox" onClick={() => setShowFullImage(false)}>
+        <div className="art-lightbox" ref={lightboxRef} onClick={() => setShowFullImage(false)}>
           <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />
         </div>
       )}
