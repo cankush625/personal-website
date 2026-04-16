@@ -70,21 +70,17 @@ const Skills = () => {
       <div className="images-container">
         {skills.map((port, idx) => {
           return (
-            <div className="image-box" key={idx}>
+            <div
+              className="image-box"
+              key={idx}
+              onClick={() => {
+                setShowKey(idx);
+                setShowPopup(true);
+              }}
+            >
               <img src={port.image} className="skill-image" alt="skill" />
               <div className="content">
                 <p className="title">{port.name}</p>
-                <div className="button-container">
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      setShowKey(idx);
-                      setShowPopup(true);
-                    }}
-                  >
-                    View
-                  </button>
-                </div>
               </div>
             </div>
           );
