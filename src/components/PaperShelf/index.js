@@ -148,6 +148,11 @@ const PaperShelf = () => {
     updateURLWithSummaryQueryParam(summaryId)
   };
 
+  useEffect(() => {
+    document.body.style.overflow = showPopup ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [showPopup]);
+
   // Function to close popup and clean URL
   const closeSummaryPopup = () => {
     setShowPopup(false);
