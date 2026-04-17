@@ -24,6 +24,7 @@ body {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   z-index: 998;
+  touch-action: none;
 }
 
 .blur-background {

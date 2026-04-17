@@ -150,7 +150,8 @@ const PaperShelf = () => {
 
   useEffect(() => {
     document.body.style.overflow = showPopup ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    document.documentElement.style.overflow = showPopup ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; document.documentElement.style.overflow = ''; };
   }, [showPopup]);
 
   // Function to close popup and clean URL
