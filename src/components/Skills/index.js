@@ -54,6 +54,11 @@ const Skills = () => {
     };
   }, [showPopup]);
 
+  useEffect(() => {
+    document.body.style.overflow = showPopup ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [showPopup]);
+
   // Function to close popup and clean URL
   const closePopup = () => {
     setShowPopup(false);
