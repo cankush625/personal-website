@@ -16,20 +16,20 @@ import VelotioLogo from "../../assets/images/career/velotio_logo.svg";
 import MaxIQLogo from "../../assets/images/career/getmaxiq_logo.png";
 
 const dotSx = {
-  borderColor: "#334155",
-  bgcolor: "#0d1f33",
+  borderColor: "var(--color-border)",
+  bgcolor: "var(--color-bg-dot)",
   boxShadow: "none",
   padding: "6px",
 };
 
 const activeDotSx = {
-  borderColor: "#f59e0b",
-  bgcolor: "#0d1f33",
+  borderColor: "var(--color-accent)",
+  bgcolor: "var(--color-bg-dot)",
   boxShadow: "none",
   padding: "6px",
 };
 
-const connectorSx = { bgcolor: "#334155" };
+const connectorSx = { bgcolor: "var(--color-border)" };
 
 const Career = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

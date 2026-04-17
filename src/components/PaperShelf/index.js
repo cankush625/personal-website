@@ -182,8 +182,8 @@ const PaperShelf = () => {
                           }
                         : {
                             flex: 1,
-                            backgroundColor: "rgba(245,158,11,0.2)",
-                            "& .MuiLinearProgress-bar": { backgroundColor: "#f59e0b" },
+                            backgroundColor: "rgba(var(--color-accent-rgb),0.2)",
+                            "& .MuiLinearProgress-bar": { backgroundColor: "var(--color-accent)" },
                           }
                     }
                   />
