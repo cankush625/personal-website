@@ -33,7 +33,7 @@
     h1 {
       font-size: 53px;
       font-family: "Coolvetica", "sans-serif";
-      color: #f59e0b;
+      color: var(--color-accent);
       font-weight: 400;
       margin-top: 0;
       position: relative;
@@ -65,7 +65,7 @@
     .standout-text {
       font-size: 20px;
       font-weight: 400;
-      color: #f59e0b;
+      color: var(--color-accent);
     }
   }
 
@@ -140,7 +140,7 @@
     padding-bottom: 80px;
 
     & + .scroll-section {
-      border-top: 1px solid rgba(245, 158, 11, 0.08);
+      border-top: 1px solid rgba(var(--color-accent-rgb), 0.08);
     }
   }
 }

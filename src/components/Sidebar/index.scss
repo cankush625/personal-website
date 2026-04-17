@@ -1,5 +1,5 @@
 .nav-bar {
-  background: #0d1526;
+  background: var(--color-bg-sidebar);
   width: 60px;
   height: 100%;
   position: fixed;
@@ -34,7 +34,7 @@
 
     a {
       font-size: 22px;
-      color: #475569;
+      color: var(--color-text-faint);
       display: block;
       line-height: 51px;
       height: 51px;
@@ -46,7 +46,7 @@
       }
 
       &:hover {
-        color: #f59e0b;
+        color: var(--color-accent);
 
         svg {
           opacity: 0;
@@ -123,7 +123,7 @@
 
     a.active {
       svg {
-        color: #f59e0b !important;
+        color: var(--color-accent) !important;
       }
     }
   }
@@ -146,7 +146,7 @@
         line-height: 16px;
 
         &:hover svg {
-          color: #f59e0b;
+          color: var(--color-accent);
         }
       }
     }
@@ -173,7 +173,7 @@
     nav {
       width: 100%;
       height: 100%;
-      background: #0d1526;
+      background: var(--color-bg-sidebar);
       top: 0;
       left: 0;
       position: fixed;
@@ -229,7 +229,7 @@
       left: 50%;
       transform: translateX(-50%);
       pointer-events: auto;
-      background: rgba(13, 21, 38, 0.5);
+      background: rgba(var(--color-bg-sidebar-rgb), 0.5);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 40px;
@@ -243,11 +243,11 @@
         padding: 6px 8px;
 
         svg {
-          color: #64748b;
+          color: var(--color-text-subtle);
         }
 
         &:hover svg {
-          color: #f59e0b;
+          color: var(--color-accent);
         }
       }
     }

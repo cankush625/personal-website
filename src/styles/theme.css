@@ -1,0 +1,37 @@
+/* ==========================================================
+   Colour Palette — edit ONLY this file to switch themes.
+   All SCSS and JSX pull their colours from these tokens.
+   ========================================================== */
+
+:root {
+  /* --- Backgrounds --- */
+  --color-bg:               #0f172a;   /* page / body */
+  --color-bg-rgb:           15, 23, 42;
+  --color-bg-sidebar:       #0d1526;   /* sidebar */
+  --color-bg-sidebar-rgb:   13, 21, 38;
+  --color-bg-surface:       #1e293b;   /* cards, popups, accordions */
+  --color-bg-surface-hover: #253347;   /* surface hover state */
+  --color-bg-dot:           #0d1f33;   /* timeline dot fill */
+
+  /* --- Accent --- */
+  --color-accent:     #f59e0b;
+  --color-accent-rgb: 245, 158, 11;    /* use as: rgba(var(--color-accent-rgb), 0.5) */
+
+  /* --- Borders --- */
+  --color-border:     #334155;
+
+  /* --- Text --- */
+  --color-text-primary:   #f1f5f9;
+  --color-text-secondary: #e2e8f0;
+  --color-text-tertiary:  #cbd5e1;
+  --color-text-muted:     #94a3b8;
+  --color-text-subtle:    #64748b;
+  --color-text-faint:     #475569;
+
+  /* --- Icons --- */
+  --color-icon-muted: #475569;   /* sidebar nav icons — inactive state */
+
+  /* --- Status --- */
+  --color-danger:  #ef4444;
+  --color-success: #05730c;
+}

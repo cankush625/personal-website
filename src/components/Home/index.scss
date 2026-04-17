@@ -34,7 +34,7 @@
       .standout-text {
         font-size: 20px;
         font-weight: 400;
-        color: #f59e0b;
+        color: var(--color-accent);
       }
     }
   }
@@ -58,7 +58,7 @@
 }
 
 h2 {
-  color: #64748b;
+  color: var(--color-text-subtle);
   margin-top: 20px;
   font-weight: 40;
   font-size: 12px;
@@ -68,22 +68,22 @@ h2 {
 }
 
 .flat-button {
-  color: #f59e0b;
+  color: var(--color-accent);
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 4px;
   font-family: sans-serif;
   text-decoration: none;
   padding: 10px 18px;
-  border: 1px solid #f59e0b;
+  border: 1px solid var(--color-accent);
   margin-top: 25px;
   float: left;
   animation: fadeIn 1s 1.8s backwards;
   white-space: nowrap;
 
   &:hover {
-    background: #f59e0b;
-    color: #0f172a;
+    background: var(--color-accent);
+    color: var(--color-bg);
   }
 }
 

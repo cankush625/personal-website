@@ -51,52 +51,52 @@ const Sidebar = () => {
           className={isActive("/") ? "active" : ""}
           onClick={(e) => handleNavClick(e, "home", "/")}
         >
-          <FontAwesomeIcon icon={faHome} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faHome} color="var(--color-icon-muted)" />
         </a>
         {/*Hidden About section because the about section content has been*/}
         {/*moved to home page*/}
         {/*<a href="#about" className={`about-link${isActive("/about") ? " active" : ""}`} onClick={(e) => handleNavClick(e, "about", "/about")}>*/}
-        {/*  <FontAwesomeIcon icon={faUser} color="#4d4d4e" />*/}
+        {/*  <FontAwesomeIcon icon={faUser} color="var(--color-icon-muted)" />*/}
         {/*</a>*/}
         <a
           href="#skills"
           className={`skills-link${isActive("/skills") ? " active" : ""}`}
           onClick={(e) => handleNavClick(e, "skills", "/skills")}
         >
-          <FontAwesomeIcon icon={faCogs} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faCogs} color="var(--color-icon-muted)" />
         </a>
         <a
           href="#career"
           className={`career-link${isActive("/career") ? " active" : ""}`}
           onClick={(e) => handleNavClick(e, "career", "/career")}
         >
-          <FontAwesomeIcon icon={faBriefcase} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faBriefcase} color="var(--color-icon-muted)" />
         </a>
         <a
           href="#paper-shelf"
           className={`paper-shelf-link${isActive("/paper-shelf") ? " active" : ""}`}
           onClick={(e) => handleNavClick(e, "paper-shelf", "/paper-shelf")}
         >
-          <FontAwesomeIcon icon={faBook} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faBook} color="var(--color-icon-muted)" />
         </a>
         <a
           href="#art-gallery"
           className={`art-gallery-link${isActive("/art-gallery") ? " active" : ""}`}
           onClick={(e) => handleNavClick(e, "art-gallery", "/art-gallery")}
         >
-          <FontAwesomeIcon icon={faImages} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faImages} color="var(--color-icon-muted)" />
         </a>
         <a
           href="#contact"
           className={`contact-link${isActive("/contact") ? " active" : ""}`}
           onClick={(e) => handleNavClick(e, "contact", "/contact")}
         >
-          <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
+          <FontAwesomeIcon icon={faEnvelope} color="var(--color-icon-muted)" />
         </a>
         <FontAwesomeIcon
           onClick={() => setShowNav(false)}
           icon={faClose}
-          color={"#ffd700"}
+          color={"var(--color-accent)"}
           size={"3x"}
           className={"close-icon"}
         />
@@ -109,7 +109,7 @@ const Sidebar = () => {
               rel={"noreferrer"}
               href={"https://linkedin.com/in/ankushchavan"}
             >
-              <FontAwesomeIcon icon={faLinkedin} color={"#4d4d4e"} />
+              <FontAwesomeIcon icon={faLinkedin} color={"var(--color-icon-muted)"} />
             </a>
           </li>
           <li>
@@ -118,7 +118,7 @@ const Sidebar = () => {
               rel={"noreferrer"}
               href={"https://github.com/cankush625"}
             >
-              <FontAwesomeIcon icon={faGithub} color={"#4d4d4e"} />
+              <FontAwesomeIcon icon={faGithub} color={"var(--color-icon-muted)"} />
             </a>
           </li>
           <li>
@@ -127,7 +127,7 @@ const Sidebar = () => {
               rel={"noreferrer"}
               href={"https://ankush-chavan.medium.com/"}
             >
-              <FontAwesomeIcon icon={faMedium} color={"#4d4d4e"} />
+              <FontAwesomeIcon icon={faMedium} color={"var(--color-icon-muted)"} />
             </a>
           </li>
           <li>
@@ -136,7 +136,7 @@ const Sidebar = () => {
               rel={"noreferrer"}
               href={"https://twitter.com/TheNameIsAnkush"}
             >
-              <FontAwesomeIcon icon={faTwitter} color={"#4d4d4e"} />
+              <FontAwesomeIcon icon={faTwitter} color={"var(--color-icon-muted)"} />
             </a>
           </li>
           {SHOW_INSTAGRAM && (
@@ -146,7 +146,7 @@ const Sidebar = () => {
                 rel={"noreferrer"}
                 href={"https://instagram.com/ankushchavan_"}
               >
-                <FontAwesomeIcon icon={faInstagram} color={"#4d4d4e"} />
+                <FontAwesomeIcon icon={faInstagram} color={"var(--color-icon-muted)"} />
               </a>
             </li>
           )}
@@ -155,7 +155,7 @@ const Sidebar = () => {
       <FontAwesomeIcon
         onClick={() => setShowNav(true)}
         icon={faBars}
-        color={"#ffd700"}
+        color={"var(--color-accent)"}
         size={"3x"}
         className={"hamburger-icon"}
       />

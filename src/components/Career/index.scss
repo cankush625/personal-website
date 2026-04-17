@@ -7,7 +7,7 @@
   overflow: auto;
 
   h1 {
-    color: #f59e0b;
+    color: var(--color-accent);
     font-size: 53px;
     margin: 0;
     font-family: "Coolvetica", sans-serif;
@@ -28,10 +28,10 @@
   }
 
   .timeline-entry-card {
-    background: #1e293b;
+    background: var(--color-bg-surface);
     border-radius: 12px;
     padding: 16px 20px;
-    border: 1px solid #334155;
+    border: 1px solid var(--color-border);
     transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
     display: inline-block;
     width: 100%;
@@ -39,7 +39,7 @@
     text-align: left;
 
     &:hover {
-      border-color: #f59e0b;
+      border-color: var(--color-accent);
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
     }
@@ -47,13 +47,13 @@
 
   .position-title {
     font-weight: 700;
-    color: #f1f5f9;
+    color: var(--color-text-primary);
     display: block;
     margin-bottom: 4px;
   }
 
   .position-company {
-    color: #f59e0b;
+    color: var(--color-accent);
     font-size: 14px;
     font-weight: 500;
     display: block;
@@ -63,19 +63,19 @@
   .date-pill {
     display: inline-block;
     background: rgba(51, 65, 85, 0.6);
-    color: #94a3b8;
+    color: var(--color-text-muted);
     font-size: 12px;
     font-weight: 500;
     padding: 3px 10px;
     border-radius: 20px;
-    border: 1px solid #334155;
+    border: 1px solid var(--color-border);
     margin-bottom: 4px;
     white-space: nowrap;
   }
 
   .position-extra {
     display: block;
-    color: #64748b;
+    color: var(--color-text-subtle);
     font-size: 12px;
     margin-top: 4px;
     margin-bottom: 8px;
@@ -86,24 +86,24 @@
   }
 
   .fading-timeline-connector {
-    background: linear-gradient(to bottom, #334155, rgba(51, 65, 85, 0)) !important;
+    background: linear-gradient(to bottom, var(--color-border), rgba(51, 65, 85, 0)) !important;
   }
 
   @keyframes pulse-ring {
     0% {
-      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+      box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.5);
     }
     70% {
-      box-shadow: 0 0 0 8px rgba(245, 158, 11, 0);
+      box-shadow: 0 0 0 8px rgba(var(--color-accent-rgb), 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+      box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0);
     }
   }
 
   .active-dot {
     animation: pulse-ring 2s ease-out infinite;
-    border-color: #f59e0b !important;
+    border-color: var(--color-accent) !important;
   }
 }
 
