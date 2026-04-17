@@ -156,6 +156,7 @@ const handleTouchEnd = (e) => {
           <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />
         </div>
       )}
+      {showPopup && <div className="popup-backdrop" onClick={closePopup} />}
       <div
         className={showPopup ? "art-popup" : "popup-disabled"}
         ref={popupRef}

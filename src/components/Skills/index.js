@@ -117,6 +117,7 @@ const Skills = () => {
 
   return (
     <>
+      {showPopup && <div className="popup-backdrop" onClick={closePopup} />}
       <div className={showPopup ? "popup" : "popup-disabled"} ref={popupRef}>
         <div>
           <FontAwesomeIcon

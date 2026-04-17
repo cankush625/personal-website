@@ -301,6 +301,7 @@ const PaperShelf = () => {
 
   return (
     <>
+      {showPopup && <div className="popup-backdrop" onClick={closeSummaryPopup} />}
       <div className={showPopup ? "summary-popup" : "popup-disabled"} ref={popupRef}>
         <FontAwesomeIcon
           onClick={closeSummaryPopup}
