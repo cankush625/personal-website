@@ -5,6 +5,8 @@ import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
+  const [status, setStatus] = useState(null); // null | 'success' | 'error'
+  const [sending, setSending] = useState(false);
   const refForm = useRef();
 
   useEffect(() => {
@@ -15,6 +17,8 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setSending(true);
+    setStatus(null);
 
     emailjs
       .sendForm(
@@ -25,11 +29,13 @@ const Contact = () => {
       )
       .then(
         () => {
-          alert("Message sent successfully!");
-          window.location.reload(false);
+          setStatus("success");
+          setSending(false);
+          refForm.current.reset();
         },
         () => {
-          alert("Failed to send the message, please try again.");
+          setStatus("error");
+          setSending(false);
         }
       );
   };
@@ -50,6 +56,16 @@ const Contact = () => {
             at my email and let's make the virtual ink flow.
           </p>
           <div className={"contact-form"}>
+            {status === "success" && (
+              <div className={"contact-status contact-status--success"}>
+                Message sent successfully. I'll get back to you soon!
+              </div>
+            )}
+            {status === "error" && (
+              <div className={"contact-status contact-status--error"}>
+                Failed to send the message. Please try again.
+              </div>
+            )}
             <form ref={refForm} onSubmit={sendEmail}>
               <ul>
                 <li className={"half"}>
@@ -83,7 +99,8 @@ const Contact = () => {
                   <input
                     type={"submit"}
                     className={"flat-button"}
-                    value={"SEND"}
+                    value={sending ? "SENDING..." : "SEND"}
+                    disabled={sending}
                   />
                 </li>
               </ul>
