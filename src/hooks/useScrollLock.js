@@ -12,11 +12,15 @@ const useScrollLock = (isLocked) => {
     document.body.style.overflowY = "scroll"; // prevent layout shift from scrollbar disappearing
 
     return () => {
+      document.documentElement.style.scrollBehavior = "auto";
       document.body.style.position = "";
       document.body.style.top = "";
       document.body.style.width = "";
       document.body.style.overflowY = "";
       window.scrollTo(0, scrollY);
+      requestAnimationFrame(() => {
+        document.documentElement.style.scrollBehavior = "";
+      });
     };
   }, [isLocked]);
 };
