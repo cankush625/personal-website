@@ -3,6 +3,7 @@ import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import artCategories from "../../data/arts";
 import { faClose, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import useScrollLock from "../../hooks/useScrollLock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ArtGallery = () => {
@@ -109,11 +110,7 @@ const handleTouchEnd = (e) => {
     touchStartXRef.current = null;
   };
 
-  useEffect(() => {
-    document.body.style.overflow = showPopup ? 'hidden' : '';
-    document.documentElement.style.overflow = showPopup ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; document.documentElement.style.overflow = ''; };
-  }, [showPopup]);
+  useScrollLock(showPopup);
 
   // Function to close popup and clean URL
   const closePopup = () => {

@@ -1,6 +1,7 @@
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import React, { useEffect, useRef, useState } from "react";
+import useScrollLock from "../../hooks/useScrollLock";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -148,11 +149,7 @@ const PaperShelf = () => {
     updateURLWithSummaryQueryParam(summaryId)
   };
 
-  useEffect(() => {
-    document.body.style.overflow = showPopup ? 'hidden' : '';
-    document.documentElement.style.overflow = showPopup ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; document.documentElement.style.overflow = ''; };
-  }, [showPopup]);
+  useScrollLock(showPopup);
 
   // Function to close popup and clean URL
   const closeSummaryPopup = () => {
