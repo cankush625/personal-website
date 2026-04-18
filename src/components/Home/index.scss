@@ -67,23 +67,25 @@ h2 {
   animation: fadeIn 1s 1.8s backwards;
 }
 
-.flat-button {
-  color: var(--color-accent);
-  font-size: 13px;
-  font-weight: 400;
-  letter-spacing: 4px;
-  font-family: sans-serif;
-  text-decoration: none;
-  padding: 10px 18px;
-  border: 1px solid var(--color-accent);
-  margin-top: 25px;
-  float: left;
-  animation: fadeIn 1s 1.8s backwards;
-  white-space: nowrap;
+.home-page {
+  .flat-button {
+    color: var(--color-accent);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid var(--color-accent);
+    margin-top: 25px;
+    float: left;
+    animation: fadeIn 1s 1.8s backwards;
+    white-space: nowrap;
 
-  &:hover {
-    background: var(--color-accent);
-    color: var(--color-bg);
+    &:hover {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
   }
 }
 
