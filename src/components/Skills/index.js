@@ -4,6 +4,7 @@ import "./index.scss";
 import skillCategories from "../../data/skills";
 import { faClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useScrollLock from "../../hooks/useScrollLock";
 
 const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -54,11 +55,7 @@ const Skills = () => {
     };
   }, [showPopup]);
 
-  useEffect(() => {
-    document.body.style.overflow = showPopup ? 'hidden' : '';
-    document.documentElement.style.overflow = showPopup ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; document.documentElement.style.overflow = ''; };
-  }, [showPopup]);
+  useScrollLock(showPopup);
 
   // Function to close popup and clean URL
   const closePopup = () => {
