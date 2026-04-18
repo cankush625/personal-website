@@ -27,6 +27,9 @@ jobs:
         env:
           CI: false
           REACT_APP_SHOW_INSTAGRAM: ${{ vars.REACT_APP_SHOW_INSTAGRAM }}
+          REACT_APP_SERVICE_ID: ${{ secrets.REACT_APP_SERVICE_ID }}
+          REACT_APP_EMAILJS_TEMPLATE_ID: ${{ secrets.REACT_APP_EMAILJS_TEMPLATE_ID }}
+          REACT_APP_EMAILJS_PUBLIC_KEY: ${{ secrets.REACT_APP_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
