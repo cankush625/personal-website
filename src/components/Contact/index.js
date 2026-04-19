@@ -3,10 +3,42 @@ import AnimatedLetters from "../AnimatedLetters";
 import { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
+const RATE_LIMIT_KEY = "contact_submissions";
+const MAX_SUBMISSIONS = 2;
+const WINDOW_MS = 5 * 60 * 60 * 1000; // 5 hours
+
+const getRemainingMinutes = (timestamps) => {
+  const oldest = timestamps[timestamps.length - MAX_SUBMISSIONS];
+  const retryAt = oldest + WINDOW_MS;
+  return Math.ceil((retryAt - Date.now()) / 60000);
+};
+
+const isRateLimited = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || "[]");
+    const recent = stored.filter((t) => Date.now() - t < WINDOW_MS);
+    return recent.length >= MAX_SUBMISSIONS
+      ? { limited: true, minutesLeft: getRemainingMinutes(recent) }
+      : { limited: false };
+  } catch {
+    return { limited: false };
+  }
+};
+
+const recordSubmission = () => {
+  try {
+    const stored = JSON.parse(localStorage.getItem(RATE_LIMIT_KEY) || "[]");
+    const recent = stored.filter((t) => Date.now() - t < WINDOW_MS);
+    recent.push(Date.now());
+    localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(recent));
+  } catch {}
+};
+
 const Contact = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const [status, setStatus] = useState(null); // null | 'success' | 'error'
+  const [status, setStatus] = useState(null); // null | 'success' | 'error' | 'rate-limited'
   const [sending, setSending] = useState(false);
+  const [minutesLeft, setMinutesLeft] = useState(0);
   const refForm = useRef();
 
   useEffect(() => {
@@ -17,6 +49,14 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    const { limited, minutesLeft } = isRateLimited();
+    if (limited) {
+      setMinutesLeft(minutesLeft);
+      setStatus("rate-limited");
+      return;
+    }
+
     setSending(true);
     setStatus(null);
 
@@ -29,6 +69,7 @@ const Contact = () => {
       )
       .then(
         () => {
+          recordSubmission();
           setStatus("success");
           setSending(false);
           refForm.current.reset();
@@ -64,6 +105,11 @@ const Contact = () => {
             {status === "error" && (
               <div className={"contact-status contact-status--error"}>
                 Failed to send the message. Please try again.
+              </div>
+            )}
+            {status === "rate-limited" && (
+              <div className={"contact-status contact-status--error"}>
+                Too many messages sent. Please try again in {minutesLeft} minute{minutesLeft !== 1 ? "s" : ""}.
               </div>
             )}
             <form ref={refForm} onSubmit={sendEmail}>
