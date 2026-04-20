@@ -61,32 +61,35 @@ const Home = () => {
             idx={20}
           />
         </h1>
-        <h2>Backend Engineer / Tech Blogger / Artist</h2>
+        <div className="role-chips">
+          <span className="role-chip">Backend Engineer</span>
+          <span className="role-chip">Tech Blogger</span>
+          <span className="role-chip">Artist</span>
+        </div>
         <div className={"about-text-zone"}>
           <p>
-            I'm a skilled{" "}
-            <span className={"standout-text"}>Software Engineer</span> with a
-            strong interest in cutting-edge technologies such as Blockchain,
-            Hybrid-Multi Cloud, Machine Learning, DevOps, Cloud Computing, and
-            Security. Currently, I work as a Senior Backend Engineer at MaxIQ.
+            Senior <span className={"standout-text"}>Backend Engineer</span> at
+            MaxIQ, working across Backend, Cloud, ML, DevOps, and Security. I
+            contribute to open-source and write technical articles on Medium.
           </p>
-          <p>
-            As a tech enthusiast, I take pleasure in learning and incorporating
-            new technologies into my work.
-            <br />I have programmed for <span className={"standout-text"}>
-              {currentYear - firstProgrammedYear}
-            </span>{" "}
-            years, <span className={"standout-text"}>
-              {currentYear - firstProfessionalProgrammingYear}
-            </span> professionally.
-          </p>
-          <p>
-            Apart from my work, I actively contribute to open-source projects and
-            write technical articles on Medium.
-          </p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <span className="hero-stat-number">
+                {currentYear - firstProgrammedYear}
+              </span>
+              <span className="hero-stat-label">years coding</span>
+            </div>
+            <div className="hero-stat-divider" />
+            <div className="hero-stat">
+              <span className="hero-stat-number">
+                {currentYear - firstProfessionalProgrammingYear}
+              </span>
+              <span className="hero-stat-label">years professional</span>
+            </div>
+          </div>
         </div>
         <Link to={"/contact"} className={"flat-button"}>
-          CONTACT ME
+          Contact Me
         </Link>
       </div>
       <Logo />
