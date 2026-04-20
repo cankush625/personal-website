@@ -1,17 +1,9 @@
-import Backend from "../assets/images/skills/backend.png";
-import Database from "../assets/images/skills/database.png";
-import CloudComputing from "../assets/images/skills/cloud_computing.jpg";
-import DevOps from "../assets/images/skills/devops.png";
-import Frontend from "../assets/images/skills/frontend.png";
-import MobileApps from "../assets/images/skills/mobile_apps.jpg";
-import CRM from "../assets/images/skills/crm.jpg";
 import React from "react";
 
 let skillCategories = [
   {
     name: "Backend",
     description: "Engineering",
-    image: Backend,
     skills: [
       {
         factorName: "Languages",
@@ -201,7 +193,6 @@ let skillCategories = [
   {
     name: "Database",
     description: "Engineering",
-    image: Database,
     skills: [
       {
         factorName: "Relational Databases",
@@ -392,7 +383,6 @@ let skillCategories = [
   {
     name: "Cloud Computing",
     description: "Engineering",
-    image: CloudComputing,
     skills: [
       {
         factorName: "Public Cloud",
@@ -477,7 +467,6 @@ let skillCategories = [
   {
     name: "DevOps",
     description: "Engineering",
-    image: DevOps,
     skills: [
       {
         factorName: "Containerization",
@@ -1231,7 +1220,6 @@ let skillCategories = [
   {
     name: "Frontend",
     description: "Engineering",
-    image: Frontend,
     skills: [
       {
         factorName: "Frameworks",
@@ -1254,7 +1242,6 @@ let skillCategories = [
   {
     name: "Mobile Apps",
     description: "Engineering",
-    image: MobileApps,
     skills: [
       {
         factorName: "Cross Platform Apps",
@@ -1300,7 +1287,6 @@ let skillCategories = [
   {
     name: "CRM",
     description: "Engineering",
-    image: CRM,
     skills: [
       {
         factorName: "Customer Relationship Management",
