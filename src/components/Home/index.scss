@@ -61,8 +61,7 @@
       }
 
       .standout-text {
-        font-size: 20px;
-        font-weight: 400;
+        font-weight: 600;
         color: var(--color-accent);
       }
     }
@@ -70,14 +69,14 @@
 
   h1 {
     color: #fff;
-    font-size: 53px;
+    font-size: clamp(28px, 7.5vw, 53px);
     margin: 0;
     font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
 
     img {
-      width: 62px;
-      margin-left: 20px;
+      width: 1.17em;
+      margin-left: 0.38em;
       opacity: 0;
       height: auto;
       animation: rotateIn 1s linear both;
@@ -86,34 +85,87 @@
   }
 }
 
-h2 {
-  color: var(--color-text-subtle);
-  margin-top: 20px;
-  font-weight: 40;
-  font-size: 12px;
-  font-family: sans-serif;
-  letter-spacing: 3px;
+/* Role chips */
+.role-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0 24px;
   animation: fadeIn 1s 1.8s backwards;
+}
+
+.role-chip {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-family: "Space Grotesk", sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Stat row */
+.hero-stats {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 20px 0 4px;
+  animation: fadeIn 1s 2s backwards;
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hero-stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.hero-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
 }
 
 .home-page {
   .flat-button {
-    color: var(--color-accent);
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background: var(--color-accent);
+    color: var(--color-bg);
     font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 4px;
-    font-family: sans-serif;
+    font-weight: 600;
+    font-family: "Space Grotesk", sans-serif;
+    letter-spacing: 0.02em;
     text-decoration: none;
-    padding: 10px 18px;
-    border: 1px solid var(--color-accent);
-    margin-top: 25px;
-    float: left;
-    animation: fadeIn 1s 1.8s backwards;
+    padding: 11px 24px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 28px;
+    animation: fadeIn 1s 2.2s backwards;
     white-space: nowrap;
+    transition: filter 0.2s ease, transform 0.2s ease;
 
     &:hover {
-      background: var(--color-accent);
-      color: var(--color-bg);
+      filter: brightness(1.1);
+      transform: translateY(-1px);
     }
   }
 }
@@ -129,10 +181,8 @@ h2 {
     }
 
     .flat-button {
-      float: none;
-      display: block;
+      display: inline-flex;
       margin: 20px auto 0 auto;
-      width: 125px;
     }
 
     .logo-container {
