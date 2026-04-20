@@ -2,9 +2,28 @@ import React, { useEffect, useRef, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 import skillCategories from "../../data/skills";
-import { faClose } from "@fortawesome/free-solid-svg-icons";
+import {
+  faClose,
+  faServer,
+  faDatabase,
+  faCloud,
+  faGears,
+  faCode,
+  faMobileScreen,
+  faUsers,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useScrollLock from "../../hooks/useScrollLock";
+
+const CATEGORY_ICONS = {
+  Backend: faServer,
+  Database: faDatabase,
+  "Cloud Computing": faCloud,
+  DevOps: faGears,
+  Frontend: faCode,
+  "Mobile Apps": faMobileScreen,
+  CRM: faUsers,
+};
 
 const Skills = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -68,22 +87,47 @@ const Skills = () => {
     setSkill(skillCategories.map((doc) => doc));
   };
 
-  const renderSkill = (skills) => {
+  const renderSkillCards = (skills) => {
     return (
-      <div className="images-container">
-        {skills.map((port, idx) => {
+      <div className="skill-cards-grid">
+        {skills.map((category, idx) => {
+          const allSkills = category.skills?.flatMap((g) => g.skillList) ?? [];
+          const previewSkills = allSkills.slice(0, 5);
+          const remaining = allSkills.length - previewSkills.length;
+
           return (
             <div
-              className="image-box"
+              className="skill-card"
               key={idx}
               onClick={() => {
                 setShowKey(idx);
                 setShowPopup(true);
               }}
             >
-              <img src={port.image} className="skill-image" alt="skill" />
-              <div className="content">
-                <p className="title">{port.name}</p>
+              <div className="skill-card-header">
+                <div className="skill-card-icon">
+                  <FontAwesomeIcon icon={CATEGORY_ICONS[category.name] ?? faCode} />
+                </div>
+                <div>
+                  <h3 className="skill-card-name">{category.name}</h3>
+                  <span className="skill-card-desc">{category.description}</span>
+                </div>
+              </div>
+              <div className="skill-card-preview">
+                {previewSkills.map((s, i) => (
+                  <div className="skill-card-chip" key={i} title={s.name}>
+                    <div className="skill-card-chip-logo">{s.logo}</div>
+                  </div>
+                ))}
+                {remaining > 0 && (
+                  <div className="skill-card-chip skill-card-chip-more">
+                    +{remaining}
+                  </div>
+                )}
+              </div>
+              <div className="skill-card-footer">
+                <span>{allSkills.length} skills</span>
+                <span className="explore-label">Explore →</span>
               </div>
             </div>
           );
@@ -130,7 +174,7 @@ const Skills = () => {
           />
           <h1>{skill[showKey]?.name}</h1>
           <div className={"skills-section"}>
-            {renderCategorySkills(skill[showKey]?.skills)}
+            {showPopup && renderCategorySkills(skill[showKey]?.skills)}
           </div>
         </div>
       </div>
@@ -143,7 +187,7 @@ const Skills = () => {
               idx={15}
             />
           </h1>
-          <div>{renderSkill(skill)}</div>
+          <div>{renderSkillCards(skill)}</div>
         </div>
       </div>
     </>
