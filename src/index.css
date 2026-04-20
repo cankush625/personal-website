@@ -17,6 +17,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Subtle dot grid texture — sits behind everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .popup-backdrop {
   position: fixed;
   inset: 0;
@@ -32,4 +43,26 @@ body {
   pointer-events: none;
   user-select: none;
   transition: filter 0.2s ease;
+}
+
+/* Section heading accent bar — all pages except home hero */
+h1.page-title::before,
+.container.about-page .text-zone h1::before,
+.container.contact-page .text-zone h1::before {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  margin-bottom: 14px;
+}
+
+/* Amber glow on section headings */
+h1.page-title,
+.container.about-page .text-zone h1,
+.container.contact-page .text-zone h1 {
+  text-shadow:
+    0 0 30px rgba(var(--color-accent-rgb), 0.45),
+    0 0 80px rgba(var(--color-accent-rgb), 0.2);
 }
