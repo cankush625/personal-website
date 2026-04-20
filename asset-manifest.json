@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1ee616ec.css",
-    "main.js": "/static/js/main.1ac86f2b.js",
+    "main.css": "/static/css/main.6faad6cb.css",
+    "main.js": "/static/js/main.0b0ca01c.js",
     "static/js/787.0f7dc5a1.chunk.js": "/static/js/787.0f7dc5a1.chunk.js",
     "static/media/engineering_college_logo.png": "/static/media/engineering_college_logo.57f0f9ca27f950c8af06.png",
     "static/media/velotio_logo.svg": "/static/media/velotio_logo.77038a5c37e4b4dcf6942dd4f6d496f2.svg",
@@ -12,12 +12,12 @@
     "static/media/phoenixgen_systems_logo.png": "/static/media/phoenixgen_systems_logo.cdcb721cf29a8bafa658.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.1ee616ec.css.map": "/static/css/main.1ee616ec.css.map",
-    "main.1ac86f2b.js.map": "/static/js/main.1ac86f2b.js.map",
+    "main.6faad6cb.css.map": "/static/css/main.6faad6cb.css.map",
+    "main.0b0ca01c.js.map": "/static/js/main.0b0ca01c.js.map",
     "787.0f7dc5a1.chunk.js.map": "/static/js/787.0f7dc5a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ee616ec.css",
-    "static/js/main.1ac86f2b.js"
+    "static/css/main.6faad6cb.css",
+    "static/js/main.0b0ca01c.js"
   ]
 }
