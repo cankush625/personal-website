@@ -6,9 +6,12 @@ import { faClose, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-
 import useScrollLock from "../../hooks/useScrollLock";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+const MEDIUMS = ["All", ...Array.from(new Set(artCategories.map((a) => a.description)))];
+
 const ArtGallery = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
   const [art, setArt] = useState([]);
+  const [activeFilter, setActiveFilter] = useState("All");
   const [showPopup, setShowPopup] = useState(false);
   const [showFullImage, setShowFullImage] = useState(false);
   const [showKey, setShowKey] = useState(0);
@@ -124,16 +127,21 @@ const handleTouchEnd = (e) => {
     setArt(artCategories.map((doc) => doc));
   };
 
+  const filteredArt = activeFilter === "All"
+    ? art
+    : art.filter((a) => a.description === activeFilter);
+
   const renderArt = (arts) => {
     return (
       <div className="images-container">
         {arts.map((port, idx) => {
+          const globalIdx = art.indexOf(port);
           return (
             <div
               className="image-box"
               key={idx}
               onClick={() => {
-                setShowKey(idx);
+                setShowKey(globalIdx);
                 setShowPopup(true);
               }}
             >
@@ -202,7 +210,18 @@ const handleTouchEnd = (e) => {
               idx={15}
             />
           </h1>
-          <div>{renderArt(art)}</div>
+          <div className="filter-bar">
+            {MEDIUMS.map((medium) => (
+              <button
+                key={medium}
+                className={`filter-btn${activeFilter === medium ? " filter-btn--active" : ""}`}
+                onClick={() => setActiveFilter(medium)}
+              >
+                {medium}
+              </button>
+            ))}
+          </div>
+          <div>{renderArt(filteredArt)}</div>
         </div>
       </div>
     </>

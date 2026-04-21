@@ -14,14 +14,14 @@ let artCategories = [
     creationDate: "July 10, 2022",
   },
   {
-    name: "Landscape Painting",
+    name: "Landscape · Sept 2023",
     description: "Acrylic Painting",
     image:
       "https://drive.google.com/thumbnail?id=1sXrwe09hRJSymww4QL_1WBXhXdeiYfvg&sz=w900-h900",
     creationDate: "Sept 22, 2023",
   },
   {
-    name: "Landscape Painting",
+    name: "Landscape · Nov 2024",
     description: "Acrylic Painting",
     image:
       "https://drive.google.com/thumbnail?id=1sLJhUHrac1jPvLgCqNVS3-bBPXUhXr6W&sz=w900-h900",
@@ -35,14 +35,14 @@ let artCategories = [
     creationDate: "Dec 31, 2022",
   },
   {
-    name: "Landscape Painting",
+    name: "Landscape · Apr 2024",
     description: "Acrylic Painting",
     image:
       "https://drive.google.com/thumbnail?id=1mqVoWHW5kKqhKVbsyX_KmKi-gBG9fvKg&sz=w900-h900",
     creationDate: "Apr 14, 2024",
   },
   {
-    name: "Landscape Painting",
+    name: "Landscape · Apr 2023",
     description: "Acrylic Painting",
     image:
       "https://drive.google.com/thumbnail?id=1Y4hRdxwSqRpUlB29NhMgJD_3JuWRTZOE&sz=w900-h900",
@@ -63,7 +63,7 @@ let artCategories = [
     creationDate: "Mar 06, 2022",
   },
   {
-    name: "Landscape Painting",
+    name: "Landscape · Dec 2021",
     description: "Water Color Painting",
     image:
       "https://drive.google.com/thumbnail?id=1XgaWU1hgiZai8lvQ99avyM4zS_WcfBGf&sz=w900-h900",
