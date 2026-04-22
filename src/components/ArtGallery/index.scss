@@ -363,14 +363,18 @@
   }
 
   .arts-section {
-    height: max-content;
+    height: 55dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .art-full-popup {
+    height: 100%;
+    width: 100%;
     max-height: 55dvh;
     max-width: 100%;
-    height: auto;
-    width: auto;
+    object-fit: contain;
     border-radius: 6px;
   }
 }
