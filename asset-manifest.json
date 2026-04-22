@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.04b5a1d3.css",
+    "main.css": "/static/css/main.676f580f.css",
     "main.js": "/static/js/main.afd200eb.js",
     "static/js/787.0f7dc5a1.chunk.js": "/static/js/787.0f7dc5a1.chunk.js",
     "static/media/engineering_college_logo.png": "/static/media/engineering_college_logo.57f0f9ca27f950c8af06.png",
@@ -12,12 +12,12 @@
     "static/media/phoenixgen_systems_logo.png": "/static/media/phoenixgen_systems_logo.cdcb721cf29a8bafa658.png",
     "static/media/CoolveticaRg-Regular.woff2": "/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
     "index.html": "/index.html",
-    "main.04b5a1d3.css.map": "/static/css/main.04b5a1d3.css.map",
+    "main.676f580f.css.map": "/static/css/main.676f580f.css.map",
     "main.afd200eb.js.map": "/static/js/main.afd200eb.js.map",
     "787.0f7dc5a1.chunk.js.map": "/static/js/787.0f7dc5a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04b5a1d3.css",
+    "static/css/main.676f580f.css",
     "static/js/main.afd200eb.js"
   ]
 }
