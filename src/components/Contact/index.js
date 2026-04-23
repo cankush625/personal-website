@@ -145,7 +145,7 @@ const Contact = () => {
                   <input
                     type={"submit"}
                     className={"flat-button"}
-                    value={sending ? "SENDING..." : "SEND"}
+                    value={sending ? "Sending..." : "Send"}
                     disabled={sending}
                   />
                 </li>
