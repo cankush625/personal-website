@@ -1,6 +1,7 @@
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -51,6 +52,14 @@ const Career = () => {
   }, []);
 
   return (
+    <>
+    <Helmet>
+      <title>Career | Ankush Chavan</title>
+      <meta name="description" content="Ankush Chavan's professional career timeline — software engineering roles at MaxIQ, Velotio Technologies, Phoenixgen Systems, and academic background." />
+      <meta property="og:title" content="Career | Ankush Chavan" />
+      <meta property="og:description" content="Ankush Chavan's professional career timeline — software engineering roles at MaxIQ, Velotio Technologies, Phoenixgen Systems, and academic background." />
+      <meta property="og:url" content="https://ankushchavan.com/#/career" />
+    </Helmet>
     <div className={"container career-page"}>
       <h1 className={"page-title"}>
         <AnimatedLetters
@@ -206,6 +215,7 @@ const Career = () => {
         </Timeline>
       </div>
     </div>
+    </>
   );
 };
 
