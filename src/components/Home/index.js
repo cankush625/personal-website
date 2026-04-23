@@ -4,6 +4,7 @@ import "./index.scss";
 import { useEffect, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import Logo from "./Logo";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
@@ -40,6 +41,14 @@ const Home = () => {
   const firstProfessionalProgrammingYear = 2021;
 
   return (
+    <>
+    <Helmet>
+      <title>Ankush Chavan | Software Engineer | Backend Developer</title>
+      <meta name="description" content="I'm Ankush Chavan, a software engineer passionate about backend development, distributed systems, and blending art with technology." />
+      <meta property="og:title" content="Ankush Chavan | Software Engineer | Backend Developer" />
+      <meta property="og:description" content="I'm Ankush Chavan, a software engineer passionate about backend development, distributed systems, and blending art with technology." />
+      <meta property="og:url" content="https://ankushchavan.com/" />
+    </Helmet>
     <div className={"container home-page"}>
       <div className={"text-zone"}>
         <h1>
@@ -94,6 +103,7 @@ const Home = () => {
       </div>
       <Logo />
     </div>
+    </>
   );
 };
 

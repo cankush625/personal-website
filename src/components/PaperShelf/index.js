@@ -1,6 +1,7 @@
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import React, { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import useScrollLock from "../../hooks/useScrollLock";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -304,6 +305,13 @@ const PaperShelf = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Paper Shelf | Ankush Chavan</title>
+        <meta name="description" content="Books, research papers, and tech blogs curated by Ankush Chavan — covering distributed systems, backend engineering, and software architecture." />
+        <meta property="og:title" content="Paper Shelf | Ankush Chavan" />
+        <meta property="og:description" content="Books, research papers, and tech blogs curated by Ankush Chavan — covering distributed systems, backend engineering, and software architecture." />
+        <meta property="og:url" content="https://ankushchavan.com/#/paper-shelf" />
+      </Helmet>
       {showPopup && <div className="popup-backdrop" onClick={closeSummaryPopup} />}
       <div className={showPopup ? "summary-popup" : "popup-disabled"} ref={popupRef}>
         <FontAwesomeIcon

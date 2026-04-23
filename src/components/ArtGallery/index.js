@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
+import { Helmet } from "react-helmet-async";
 import artCategories from "../../data/arts";
 import { faClose, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import useScrollLock from "../../hooks/useScrollLock";
@@ -162,6 +163,13 @@ const handleTouchEnd = (e) => {
 
   return (
     <>
+      <Helmet>
+        <title>Art Gallery | Ankush Chavan</title>
+        <meta name="description" content="Original artwork by Ankush Chavan — pencil sketches, digital illustrations, and mixed media pieces blending art with a software engineer's perspective." />
+        <meta property="og:title" content="Art Gallery | Ankush Chavan" />
+        <meta property="og:description" content="Original artwork by Ankush Chavan — pencil sketches, digital illustrations, and mixed media pieces blending art with a software engineer's perspective." />
+        <meta property="og:url" content="https://ankushchavan.com/#/art-gallery" />
+      </Helmet>
       {showFullImage && (
         <div className="art-lightbox" ref={lightboxRef} onClick={() => setShowFullImage(false)}>
           <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />

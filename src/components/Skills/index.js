@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
+import { Helmet } from "react-helmet-async";
 import skillCategories from "../../data/skills";
 import {
   faClose,
@@ -164,6 +165,13 @@ const Skills = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Skills | Ankush Chavan</title>
+        <meta name="description" content="Explore Ankush Chavan's technical skills spanning backend development, distributed systems, cloud infrastructure, databases, and more." />
+        <meta property="og:title" content="Skills | Ankush Chavan" />
+        <meta property="og:description" content="Explore Ankush Chavan's technical skills spanning backend development, distributed systems, cloud infrastructure, databases, and more." />
+        <meta property="og:url" content="https://ankushchavan.com/#/skills" />
+      </Helmet>
       {showPopup && <div className="popup-backdrop" onClick={closePopup} />}
       <div className={showPopup ? "popup" : "popup-disabled"} ref={popupRef}>
         <div>

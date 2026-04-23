@@ -1,6 +1,7 @@
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import { useEffect, useRef, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import emailjs from "@emailjs/browser";
 
 const RATE_LIMIT_KEY = "contact_submissions";
@@ -82,6 +83,14 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>Contact | Ankush Chavan</title>
+      <meta name="description" content="Get in touch with Ankush Chavan — open to collaborations, engineering discussions, and opportunities in backend and distributed systems." />
+      <meta property="og:title" content="Contact | Ankush Chavan" />
+      <meta property="og:description" content="Get in touch with Ankush Chavan — open to collaborations, engineering discussions, and opportunities in backend and distributed systems." />
+      <meta property="og:url" content="https://ankushchavan.com/#/contact" />
+    </Helmet>
     <div>
       <div className={"container contact-page"}>
         <div className={"text-zone"}>
@@ -155,6 +164,7 @@ const Contact = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
