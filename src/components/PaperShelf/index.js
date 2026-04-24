@@ -165,7 +165,7 @@ const PaperShelf = () => {
         {books[showBookKey]?.map((port, idx) => {
           return (
             <div className="image-box" key={idx}>
-              <img src={port.image} className="entity-image" alt="book" />
+              <img src={port.image} className="entity-image" alt={port.name} />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
               </div>
@@ -230,7 +230,7 @@ const PaperShelf = () => {
               <img
                 src={port.image}
                 className="entity-image"
-                alt="research paper"
+                alt={port.name}
               />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
@@ -270,7 +270,7 @@ const PaperShelf = () => {
         {blogs[showBlogKey]?.map((port, idx) => {
           return (
             <div className="image-box" key={idx}>
-              <img src={port.image} className="entity-image" alt="blog" />
+              <img src={port.image} className="entity-image" alt={port.name} />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
               </div>
