@@ -146,7 +146,7 @@ const handleTouchEnd = (e) => {
                 setShowPopup(true);
               }}
             >
-              <img src={port.image} className="art-image" alt="art" />
+              <img src={port.image} className="art-image" alt={port.name} />
               <div className="image-date">
                 <p>{port.creationDate}</p>
               </div>
@@ -172,7 +172,7 @@ const handleTouchEnd = (e) => {
       </Helmet>
       {showFullImage && (
         <div className="art-lightbox" ref={lightboxRef} onClick={() => setShowFullImage(false)}>
-          <img src={art[showKey]?.image} alt={"art"} className="art-lightbox-img" />
+          <img src={art[showKey]?.image} alt={art[showKey]?.name} className="art-lightbox-img" />
         </div>
       )}
       {showPopup && <div className="popup-backdrop" onClick={closePopup} />}
@@ -193,7 +193,7 @@ const handleTouchEnd = (e) => {
             <img
               key={showKey}
               src={art[showKey]?.image}
-              alt={"art"}
+              alt={art[showKey]?.name}
               className={`art-full-popup art-slide-in-${slideDirection}`}
               onClick={() => setShowFullImage(true)}
             />
