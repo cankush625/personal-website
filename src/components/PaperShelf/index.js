@@ -165,7 +165,7 @@ const PaperShelf = () => {
         {books[showBookKey]?.map((port, idx) => {
           return (
             <div className="image-box" key={idx}>
-              <img src={port.image} className="entity-image" alt={port.name} />
+              <img src={port.image} className="entity-image" alt={port.name} loading="lazy" />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
               </div>
@@ -231,6 +231,7 @@ const PaperShelf = () => {
                 src={port.image}
                 className="entity-image"
                 alt={port.name}
+                loading="lazy"
               />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
@@ -270,7 +271,7 @@ const PaperShelf = () => {
         {blogs[showBlogKey]?.map((port, idx) => {
           return (
             <div className="image-box" key={idx}>
-              <img src={port.image} className="entity-image" alt={port.name} />
+              <img src={port.image} className="entity-image" alt={port.name} loading="lazy" />
               <div className="read-date">
                 <p>{port.readDate ?? port.writtenDate}</p>
               </div>
@@ -310,7 +311,7 @@ const PaperShelf = () => {
         <meta name="description" content="Books, research papers, and tech blogs curated by Ankush Chavan — covering distributed systems, backend engineering, and software architecture." />
         <meta property="og:title" content="Paper Shelf | Ankush Chavan" />
         <meta property="og:description" content="Books, research papers, and tech blogs curated by Ankush Chavan — covering distributed systems, backend engineering, and software architecture." />
-        <meta property="og:url" content="https://ankushchavan.com/#/paper-shelf" />
+        <meta property="og:url" content="https://ankushchavan.com/paper-shelf" />
       </Helmet>
       {showPopup && <div className="popup-backdrop" onClick={closeSummaryPopup} />}
       <div className={showPopup ? "summary-popup" : "popup-disabled"} ref={popupRef}>

@@ -58,7 +58,7 @@ const Career = () => {
       <meta name="description" content="Ankush Chavan's professional career timeline — software engineering roles at MaxIQ, Velotio Technologies, Phoenixgen Systems, and academic background." />
       <meta property="og:title" content="Career | Ankush Chavan" />
       <meta property="og:description" content="Ankush Chavan's professional career timeline — software engineering roles at MaxIQ, Velotio Technologies, Phoenixgen Systems, and academic background." />
-      <meta property="og:url" content="https://ankushchavan.com/#/career" />
+      <meta property="og:url" content="https://ankushchavan.com/career" />
     </Helmet>
     <div className={"container career-page"}>
       <h1 className={"page-title"}>

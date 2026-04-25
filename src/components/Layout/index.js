@@ -95,7 +95,7 @@ const Layout = () => {
   return (
     <div className={"App"}>
       <Sidebar />
-      <div className={"page"}>
+      <main className={"page"}>
         <section id="home" className="scroll-section">
           <Home />
         </section>
@@ -114,7 +114,7 @@ const Layout = () => {
         <section id="contact" className="scroll-section">
           <Contact />
         </section>
-      </div>
+      </main>
     </div>
   );
 };

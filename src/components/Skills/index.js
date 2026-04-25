@@ -170,7 +170,7 @@ const Skills = () => {
         <meta name="description" content="Explore Ankush Chavan's technical skills spanning backend development, distributed systems, cloud infrastructure, databases, and more." />
         <meta property="og:title" content="Skills | Ankush Chavan" />
         <meta property="og:description" content="Explore Ankush Chavan's technical skills spanning backend development, distributed systems, cloud infrastructure, databases, and more." />
-        <meta property="og:url" content="https://ankushchavan.com/#/skills" />
+        <meta property="og:url" content="https://ankushchavan.com/skills" />
       </Helmet>
       {showPopup && <div className="popup-backdrop" onClick={closePopup} />}
       <div className={showPopup ? "popup" : "popup-disabled"} ref={popupRef}>
