@@ -1,7 +1,8 @@
 .art-gallery-page {
-  padding-left: 100px;
+  padding-left: 10%;
   padding-right: 50px;
-  width: calc(100% - 150px);
+  width: 100%;
+  box-sizing: border-box;
   position: initial;
   height: 100%;
   overflow: auto;
@@ -17,7 +18,6 @@
   }
 
   h1.page-title {
-    margin-left: 100px;
     margin-top: 100px;
   }
 
@@ -26,7 +26,6 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 28px;
-    margin-left: 100px;
   }
 
   .filter-btn {
@@ -347,10 +346,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .art-gallery-page .filter-bar {
-    margin-left: 0;
-  }
-
   .image-box {
     flex: 1 1 30% !important;
   }

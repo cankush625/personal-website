@@ -40,7 +40,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="nav-bar">
+    <header className="nav-bar">
       <a className="logo" href="#home" onClick={(e) => handleNavClick(e, "home", "/")}>
         <img src={Logo} alt="logo" />
         {/*<img className="sub-logo" src={LogoSubtitle} alt="logo-subtitle"/>*/}
@@ -159,7 +159,7 @@ const Sidebar = () => {
         size={"3x"}
         className={"hamburger-icon"}
       />
-    </div>
+    </header>
   );
 };
 

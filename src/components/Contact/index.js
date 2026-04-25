@@ -89,7 +89,7 @@ const Contact = () => {
       <meta name="description" content="Get in touch with Ankush Chavan — open to collaborations, engineering discussions, and opportunities in backend and distributed systems." />
       <meta property="og:title" content="Contact | Ankush Chavan" />
       <meta property="og:description" content="Get in touch with Ankush Chavan — open to collaborations, engineering discussions, and opportunities in backend and distributed systems." />
-      <meta property="og:url" content="https://ankushchavan.com/#/contact" />
+      <meta property="og:url" content="https://ankushchavan.com/contact" />
     </Helmet>
     <div>
       <div className={"container contact-page"}>

@@ -146,7 +146,7 @@ const handleTouchEnd = (e) => {
                 setShowPopup(true);
               }}
             >
-              <img src={port.image} className="art-image" alt={port.name} />
+              <img src={port.image} className="art-image" alt={port.name} loading="lazy" />
               <div className="image-date">
                 <p>{port.creationDate}</p>
               </div>
@@ -168,7 +168,7 @@ const handleTouchEnd = (e) => {
         <meta name="description" content="Original artwork by Ankush Chavan — pencil sketches, digital illustrations, and mixed media pieces blending art with a software engineer's perspective." />
         <meta property="og:title" content="Art Gallery | Ankush Chavan" />
         <meta property="og:description" content="Original artwork by Ankush Chavan — pencil sketches, digital illustrations, and mixed media pieces blending art with a software engineer's perspective." />
-        <meta property="og:url" content="https://ankushchavan.com/#/art-gallery" />
+        <meta property="og:url" content="https://ankushchavan.com/art-gallery" />
       </Helmet>
       {showFullImage && (
         <div className="art-lightbox" ref={lightboxRef} onClick={() => setShowFullImage(false)}>
