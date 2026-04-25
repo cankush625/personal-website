@@ -2,6 +2,7 @@ import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import usePopupClose from "../../hooks/usePopupClose";
 import useScrollLock from "../../hooks/useScrollLock";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -42,33 +43,14 @@ const PaperShelf = () => {
     showSummaryPopupIfSummaryInQueryParams();
   }, []);
 
-  useEffect(() => {
-    // If popup is opened and clicked outside the popup then close the popup
-    function handleClickOutside(event) {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        closeSummaryPopup();
-      }
-    }
+  // Function to close popup and clean URL
+  const closeSummaryPopup = () => {
+    setShowPopup(false);
+    // Remove query parameters from URL
+    removeSummaryQueryParamFromURL();
+  };
 
-    // If popup is opened and Esc key is pressed then close the popup
-    function handleEscKey(event) {
-      if (event.key === 'Escape' && showPopup) {
-        closeSummaryPopup();
-      }
-    }
-
-    // Only add the event listener when the popup is shown
-    if (showPopup) {
-      document.addEventListener('mousedown', handleClickOutside);
-      document.addEventListener('keydown', handleEscKey);
-    }
-
-    // Clean up the event listener
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-      document.removeEventListener('keydown', handleEscKey);
-    };
-  }, [showPopup]);
+  usePopupClose(popupRef, showPopup, closeSummaryPopup);
 
   const getBook = async () => {
     setBook(books);
@@ -151,13 +133,6 @@ const PaperShelf = () => {
   };
 
   useScrollLock(showPopup);
-
-  // Function to close popup and clean URL
-  const closeSummaryPopup = () => {
-    setShowPopup(false);
-    // Remove query parameters from URL
-    removeSummaryQueryParamFromURL();
-  };
 
   const renderBook = (books) => {
     return (
@@ -250,7 +225,7 @@ const PaperShelf = () => {
                   <button
                     className={port.summary ? "btn": "btn-disabled"}
                     onClick={() => {
-                      const summaryId = "papers" + "-" + showBookKey + "-" + idx;
+                      const summaryId = "papers" + "-" + showPaperKey + "-" + idx;
                       openSummaryPopup(summaryId, port.summary);
                     }}
                   >
@@ -289,7 +264,7 @@ const PaperShelf = () => {
                   <button
                     className={port.summary ? "btn": "btn-disabled"}
                     onClick={() => {
-                      const summaryId = "blogs" + "-" + showBookKey + "-" + idx;
+                      const summaryId = "blogs" + "-" + showBlogKey + "-" + idx;
                       openSummaryPopup(summaryId, port.summary);
                     }}
                   >
