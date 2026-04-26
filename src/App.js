@@ -2,7 +2,6 @@ import "./App.scss";
 import { Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./components/Home";
-import About from "./components/About";
 import Contact from "./components/Contact";
 import Skills from "./components/Skills";
 import ArtGallery from "./components/ArtGallery";
@@ -14,7 +13,6 @@ function App() {
     <Routes>
       <Route path={"/"} element={<Layout />}>
         <Route index element={<Home />} />
-        {/*<Route path={"about"} element={<About />} />*/}
         <Route path={"skills"} element={<Skills />} />
         <Route path={"career"} element={<Career />} />
         <Route path={"paper-shelf"} element={<PaperShelf />} />
