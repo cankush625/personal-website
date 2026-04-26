@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet-async";
 import usePopupClose from "../../hooks/usePopupClose";
 import useScrollLock from "../../hooks/useScrollLock";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
-import LinearProgress from "@mui/material/LinearProgress";
 import books from "../../data/books";
 import papers from "../../data/papers";
 import blogs from "../../data/blogs";
@@ -110,23 +109,15 @@ const PaperShelf = () => {
 
                 {sectionKey === "books" && (
                   <div style={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
-                    <LinearProgress
-                      variant="determinate"
-                      value={(port.pagesRead / port.totalPages) * 100}
-                      sx={
-                        port.pagesRead === port.totalPages
-                          ? {
-                              flex: 1,
-                              backgroundColor: "rgba(5,115,12,0.4)",
-                              "& .MuiLinearProgress-bar": { backgroundColor: "#05730c" },
-                            }
-                          : {
-                              flex: 1,
-                              backgroundColor: "rgba(var(--color-accent-rgb),0.2)",
-                              "& .MuiLinearProgress-bar": { backgroundColor: "var(--color-accent)" },
-                            }
-                      }
-                    />
+                    <div className="flex-1 h-1.5 rounded-full overflow-hidden" style={{ backgroundColor: port.pagesRead === port.totalPages ? "rgba(5,115,12,0.4)" : "rgba(var(--color-accent-rgb),0.2)" }}>
+                      <div
+                        className="h-full rounded-full transition-all"
+                        style={{
+                          width: `${(port.pagesRead / port.totalPages) * 100}%`,
+                          backgroundColor: port.pagesRead === port.totalPages ? "#05730c" : "var(--color-accent)",
+                        }}
+                      />
+                    </div>
                     {port.pagesRead === port.totalPages && (
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="8" cy="8" r="7.5" stroke="#05730c" fill="rgba(5,115,12,0.2)" />
