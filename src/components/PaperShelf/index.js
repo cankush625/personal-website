@@ -17,127 +17,90 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare, faClose } from "@fortawesome/free-solid-svg-icons";
 import parse from "html-react-parser";
 
+const SECTIONS = [
+  { key: "books",  label: "Engineering Books",  data: books,  defaultExpanded: true },
+  { key: "papers", label: "Research Papers",     data: papers, defaultExpanded: false },
+  { key: "blogs",  label: "Engineering Blogs",   data: blogs,  defaultExpanded: false },
+];
+
 const PaperShelf = () => {
   const [letterClass, setLetterClass] = useState("text-animate");
-  const [book, setBook] = useState({});
-  const [paper, setPaper] = useState({});
-  const [blog, setBlog] = useState({});
-  const [showBookKey, setShowBookKey] = useState("read");
-  const [showPaperKey, setShowPaperKey] = useState("read");
-  const [showBlogKey, setShowBlogKey] = useState("read");
+  const [activeKeys, setActiveKeys] = useState({ books: "read", papers: "read", blogs: "read" });
   const [showPopup, setShowPopup] = useState(false);
   const [showSummary, setShowSummary] = useState({});
   const popupRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setLetterClass("text-animate-hover");
-    }, 3000);
+    const timer = setTimeout(() => setLetterClass("text-animate-hover"), 3000);
+    return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
-    getBook();
-    getPaper();
-    getBlog();
-
     showSummaryPopupIfSummaryInQueryParams();
   }, []);
 
   // Function to close popup and clean URL
   const closeSummaryPopup = () => {
     setShowPopup(false);
-    // Remove query parameters from URL
     removeSummaryQueryParamFromURL();
   };
 
   usePopupClose(popupRef, showPopup, closeSummaryPopup);
-
-  const getBook = async () => {
-    setBook(books);
-  };
-
-  const getPaper = async () => {
-    setPaper(papers);
-  };
-
-  const getBlog = async () => {
-    setBlog(blogs);
-  };
+  useScrollLock(showPopup);
 
   const showSummaryPopupIfSummaryInQueryParams = () => {
-    // Check URL for popup parameters
     const hashPart = window.location.hash;
     const queryStartIndex = hashPart.indexOf('?');
-    if (queryStartIndex !== -1) {
-      const queryString = hashPart.substring(queryStartIndex);
-      const queryParams = new URLSearchParams(queryString);
-      const summaryId = queryParams.get('summary');
+    if (queryStartIndex === -1) return;
 
-      if (summaryId) {
-        const summaryIdData = summaryId.split("-");
-        const section = summaryIdData[0];
-        const action = summaryIdData[1];
-        // Convert to number if it's a numeric ID
-        const idx = parseInt(summaryIdData[2], 10);
-        switch (section) {
-          case "books":
-            setShowSummary(books[action][idx].summary);
-            break;
-          case "papers":
-            setShowSummary(papers[action][idx].summary);
-            break;
-          case "blogs":
-            setShowSummary(blogs[action][idx].summary);
-            break;
-        }
-        setShowPopup(true);
-      }
+    const queryParams = new URLSearchParams(hashPart.substring(queryStartIndex));
+    const summaryId = queryParams.get('summary');
+    if (!summaryId) return;
+
+    const [section, action, rawIdx] = summaryId.split("-");
+    const idx = parseInt(rawIdx, 10);
+    const sectionData = { books, papers, blogs }[section];
+    if (sectionData?.[action]?.[idx]?.summary) {
+      setShowSummary(sectionData[action][idx].summary);
+      setShowPopup(true);
     }
-  }
+  };
 
   const updateURLWithSummaryQueryParam = (summaryId) => {
     const hashPart = window.location.hash;
-    let basePath;
-
-    // Remove any existing query parameters
     const queryStartIndex = hashPart.indexOf('?');
-    if (queryStartIndex !== -1) {
-      basePath = hashPart.substring(0, queryStartIndex);
-    } else {
-      basePath = hashPart;
-    }
-
-    // Append the new query parameter
-    const newUrl = `${window.location.origin}${window.location.pathname}${basePath}?summary=${summaryId}`;
-    window.history.pushState({}, '', newUrl);
-  }
+    const basePath = queryStartIndex !== -1 ? hashPart.substring(0, queryStartIndex) : hashPart;
+    window.history.pushState({}, '', `${window.location.origin}${window.location.pathname}${basePath}?summary=${summaryId}`);
+  };
 
   const removeSummaryQueryParamFromURL = () => {
     const hashPart = window.location.hash;
     const queryStartIndex = hashPart.indexOf('?');
-
     if (queryStartIndex !== -1) {
       const basePath = hashPart.substring(0, queryStartIndex);
-      const newUrl = `${window.location.origin}${window.location.pathname}${basePath}`;
-      window.history.pushState({}, '', newUrl);
+      window.history.pushState({}, '', `${window.location.origin}${window.location.pathname}${basePath}`);
     }
-  }
+  };
 
-  // Function to open popup and update URL
   const openSummaryPopup = (summaryId, summary) => {
     setShowSummary(summary);
     setShowPopup(true);
-
-    // Update URL without full page reload
-    updateURLWithSummaryQueryParam(summaryId)
+    updateURLWithSummaryQueryParam(summaryId);
   };
 
-  useScrollLock(showPopup);
-
-  const renderBook = (books) => {
+  const renderItems = (sectionKey, data, activeKey) => {
+    const items = data[activeKey] ?? [];
     return (
       <div className="images-container">
-        {books[showBookKey]?.map((port, idx) => {
+        {items.map((port, idx) => {
+          const summaryId = `${sectionKey}-${activeKey}-${idx}`;
+          const viewButton = (
+            <button className="btn">
+              <span className="btn-name">View</span>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
+            </button>
+          );
+
           return (
             <div className="image-box" key={idx}>
               <img src={port.image} className="entity-image" alt={port.name} loading="lazy" />
@@ -148,42 +111,43 @@ const PaperShelf = () => {
                 <p className="title">{port.name}</p>
                 <h4 className="description">{port.description}</h4>
                 <h4 className="authors">Authors: {port.authors}</h4>
-                <Box sx={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
-                  <LinearProgress
-                    variant="determinate"
-                    value={(port.pagesRead / port.totalPages) * 100}
-                    sx={
-                      port.pagesRead === port.totalPages
-                        ? {
-                            flex: 1,
-                            backgroundColor: "rgba(5,115,12,0.4)",
-                            "& .MuiLinearProgress-bar": { backgroundColor: "#05730c" },
-                          }
-                        : {
-                            flex: 1,
-                            backgroundColor: "rgba(var(--color-accent-rgb),0.2)",
-                            "& .MuiLinearProgress-bar": { backgroundColor: "var(--color-accent)" },
-                          }
-                    }
-                  />
-                  {port.pagesRead === port.totalPages && (
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="8" cy="8" r="7.5" stroke="#05730c" fill="rgba(5,115,12,0.2)" />
-                      <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#05730c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  )}
-                </Box>
+
+                {sectionKey === "books" && (
+                  <Box sx={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
+                    <LinearProgress
+                      variant="determinate"
+                      value={(port.pagesRead / port.totalPages) * 100}
+                      sx={
+                        port.pagesRead === port.totalPages
+                          ? {
+                              flex: 1,
+                              backgroundColor: "rgba(5,115,12,0.4)",
+                              "& .MuiLinearProgress-bar": { backgroundColor: "#05730c" },
+                            }
+                          : {
+                              flex: 1,
+                              backgroundColor: "rgba(var(--color-accent-rgb),0.2)",
+                              "& .MuiLinearProgress-bar": { backgroundColor: "var(--color-accent)" },
+                            }
+                      }
+                    />
+                    {port.pagesRead === port.totalPages && (
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="8" cy="8" r="7.5" stroke="#05730c" fill="rgba(5,115,12,0.2)" />
+                        <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#05730c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    )}
+                  </Box>
+                )}
+
                 <div className="button-container">
-                  <button className="btn" onClick={() => {}}>
-                    <span className={"btn-name"}>View</span>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
-                  </button>
+                  {port.link
+                    ? <a target="_blank" rel="noreferrer" href={port.link}>{viewButton}</a>
+                    : viewButton
+                  }
                   <button
-                    className={port.summary ? "btn": "btn-disabled"}
-                    onClick={() => {
-                      const summaryId = "books" + "-" + showBookKey + "-" + idx
-                      openSummaryPopup(summaryId, port.summary);
-                    }}
+                    className={port.summary ? "btn" : "btn-disabled"}
+                    onClick={() => openSummaryPopup(summaryId, port.summary)}
                   >
                     Summary
                   </button>
@@ -196,88 +160,22 @@ const PaperShelf = () => {
     );
   };
 
-  const renderPaper = (papers) => {
-    return (
-      <div className="images-container">
-        {papers[showPaperKey]?.map((port, idx) => {
-          return (
-            <div className="image-box" key={idx}>
-              <img
-                src={port.image}
-                className="entity-image"
-                alt={port.name}
-                loading="lazy"
-              />
-              <div className="read-date">
-                <p>{port.readDate ?? port.writtenDate}</p>
-              </div>
-              <div className="content">
-                <p className="title">{port.name}</p>
-                <h4 className="description">{port.description}</h4>
-                <h4 className="authors">Authors: {port.authors}</h4>
-                <div className="button-container">
-                  <a target={"_blank"} rel={"noreferrer"} href={port.link}>
-                    <button className="btn" onClick={() => {}}>
-                      <span className={"btn-name"}>View</span>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
-                    </button>
-                  </a>
-                  <button
-                    className={port.summary ? "btn": "btn-disabled"}
-                    onClick={() => {
-                      const summaryId = "papers" + "-" + showPaperKey + "-" + idx;
-                      openSummaryPopup(summaryId, port.summary);
-                    }}
-                  >
-                    Summary
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
-
-  const renderBlog = (blogs) => {
-    return (
-      <div className="images-container">
-        {blogs[showBlogKey]?.map((port, idx) => {
-          return (
-            <div className="image-box" key={idx}>
-              <img src={port.image} className="entity-image" alt={port.name} loading="lazy" />
-              <div className="read-date">
-                <p>{port.readDate ?? port.writtenDate}</p>
-              </div>
-              <div className="content">
-                <p className="title">{port.name}</p>
-                <h4 className="description">{port.description}</h4>
-                <h4 className="authors">Authors: {port.authors}</h4>
-                <div className="button-container">
-                  <a target={"_blank"} rel={"noreferrer"} href={port.link}>
-                    <button className="btn" onClick={() => {}}>
-                      <span className={"btn-name"}>View</span>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} color="#ffffff" />
-                    </button>
-                  </a>
-                  <button
-                    className={port.summary ? "btn": "btn-disabled"}
-                    onClick={() => {
-                      const summaryId = "blogs" + "-" + showBlogKey + "-" + idx;
-                      openSummaryPopup(summaryId, port.summary);
-                    }}
-                  >
-                    Summary
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    );
-  };
+  const renderReadWrittenToggle = (sectionKey) => (
+    <div className="action-section">
+      <ul>
+        {["read", "written"].map((tab) => (
+          <li key={tab}>
+            <button
+              className={`action-button ${activeKeys[sectionKey] === tab ? "active-action-button" : ""}`}
+              onClick={() => setActiveKeys((prev) => ({ ...prev, [sectionKey]: tab }))}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
   return (
     <>
@@ -293,14 +191,14 @@ const PaperShelf = () => {
         <FontAwesomeIcon
           onClick={closeSummaryPopup}
           icon={faClose}
-          className={"close-summary-popup-icon"}
+          className="close-summary-popup-icon"
         />
-        <h1 className={"summary-title"}>{showSummary?.title}</h1>
-        <div className={"summary-section"}>
+        <h1 className="summary-title">{showSummary?.title}</h1>
+        <div className="summary-section">
           {parse(showSummary.summary ? showSummary.summary : "")}
         </div>
       </div>
-      <div className={"container paper-shelf-page"}>
+      <div className="container paper-shelf-page">
         <div className={showPopup ? "blur-background" : ""}>
           <h1 className="page-title">
             <AnimatedLetters
@@ -309,133 +207,31 @@ const PaperShelf = () => {
               idx={15}
             />
           </h1>
-          <div className={"content-zone"}>
-            <Accordion defaultExpanded disableGutters square className={"content-sections"} sx={{ backgroundImage: "none" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-                aria-controls="eng-books-content"
-                className={"eng-books-header"}
+          <div className="content-zone">
+            {SECTIONS.map(({ key, label, data, defaultExpanded }) => (
+              <Accordion
+                key={key}
+                defaultExpanded={defaultExpanded}
+                disableGutters
+                square={key !== "blogs"}
+                className="content-sections"
+                sx={{ backgroundImage: "none" }}
               >
-                <h3>Engineering Books</h3>
-              </AccordionSummary>
-              <AccordionDetails className={"content-details"}>
-                <div>
-                  <div className={"action-section"}>
-                    <ul>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showBookKey === "read" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowBookKey("read");
-                          }}
-                        >
-                          Read
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showBookKey === "written" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowBookKey("written");
-                          }}
-                        >
-                          Written
-                        </button>
-                      </li>
-                    </ul>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon className="expand-icon" />}
+                  aria-controls={`${key}-content`}
+                  className={`${key}-header`}
+                >
+                  <h3>{label}</h3>
+                </AccordionSummary>
+                <AccordionDetails className="content-details">
+                  <div>
+                    {renderReadWrittenToggle(key)}
+                    {renderItems(key, data, activeKeys[key])}
                   </div>
-                  <div>{renderBook(book)}</div>
-                </div>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion disableGutters square className={"content-sections"} sx={{ backgroundImage: "none" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-                aria-controls="research-papers-content"
-                className={"research-papers-header"}
-              >
-                <h3>Research Papers</h3>
-              </AccordionSummary>
-              <AccordionDetails className={"content-details"}>
-                <div>
-                  <div className={"action-section"}>
-                    <ul>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showPaperKey === "read" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowPaperKey("read");
-                          }}
-                        >
-                          Read
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showPaperKey === "written" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowPaperKey("written");
-                          }}
-                        >
-                          Written
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>{renderPaper(paper)}</div>
-                </div>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion disableGutters className={"content-sections"} sx={{ backgroundImage: "none" }}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon className={"expand-icon"} />}
-                aria-controls="eng-blogs-content"
-                className={"eng-blogs-header"}
-              >
-                <h3>Engineering Blogs</h3>
-              </AccordionSummary>
-              <AccordionDetails className={"content-details"}>
-                <div>
-                  <div className={"action-section"}>
-                    <ul>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showBlogKey === "read" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowBlogKey("read");
-                          }}
-                        >
-                          Read
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className={`action-button ${
-                            showBlogKey === "written" ? "active-action-button" : ""
-                          }`}
-                          onClick={() => {
-                            setShowBlogKey("written");
-                          }}
-                        >
-                          Written
-                        </button>
-                      </li>
-                    </ul>
-                  </div>
-                  <div>{renderBlog(blog)}</div>
-                </div>
-              </AccordionDetails>
-            </Accordion>
+                </AccordionDetails>
+              </Accordion>
+            ))}
           </div>
         </div>
       </div>
