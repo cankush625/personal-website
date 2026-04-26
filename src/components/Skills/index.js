@@ -90,7 +90,7 @@ const Skills = () => {
               </div>
               <div className="skill-card-preview">
                 {previewSkills.map((s, i) => (
-                  <div className="skill-card-chip" key={i} title={s.name}>
+                  <div className="skill-card-chip" key={i} data-tooltip={s.name}>
                     <div className="skill-card-chip-logo">{s.logo}</div>
                   </div>
                 ))}
