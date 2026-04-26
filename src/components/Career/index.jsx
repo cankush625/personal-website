@@ -2,35 +2,10 @@ import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-
-import Timeline from "@mui/lab/Timeline";
-import TimelineItem from "@mui/lab/TimelineItem";
-import TimelineSeparator from "@mui/lab/TimelineSeparator";
-import TimelineConnector from "@mui/lab/TimelineConnector";
-import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
-import TimelineDot from "@mui/lab/TimelineDot";
-import Typography from "@mui/material/Typography";
 import EngineeringCollegeLogo from "../../assets/images/career/engineering_college_logo.png";
 import PhoenixgenSystemsLogo from "../../assets/images/career/phoenixgen_systems_logo.png";
 import VelotioLogo from "../../assets/images/career/velotio_logo.svg";
 import MaxIQLogo from "../../assets/images/career/getmaxiq_logo.png";
-
-const dotSx = {
-  borderColor: "var(--color-border)",
-  bgcolor: "var(--color-bg-dot)",
-  boxShadow: "none",
-  padding: "6px",
-};
-
-const activeDotSx = {
-  borderColor: "var(--color-accent)",
-  bgcolor: "var(--color-bg-dot)",
-  boxShadow: "none",
-  padding: "6px",
-};
-
-const connectorSx = { bgcolor: "var(--color-border)" };
 
 const Career = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -69,150 +44,124 @@ const Career = () => {
         />
       </h1>
       <div className={"career-timeline"}>
-        <Timeline position={isMobile ? "right" : "alternate"}>
-          <TimelineItem className={"career-timeline-item"}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              align="right"
-              variant="body2"
-              color="gray"
-            ></TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-              <TimelineDot variant="outlined" className={"active-dot"} sx={activeDotSx}>
-                <img src={MaxIQLogo} alt="maxiq logo" className={"timeline-dot-image"} />
-              </TimelineDot>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
-              <div className={"timeline-entry-card"}>
-                <Typography variant="h6" component="span" className={"position-title"}>
-                  Senior Software Engineer
-                </Typography>
-                <Typography variant="body2" className={"position-company"}>
-                  MaxIQ, Pune
-                </Typography>
-                <Typography variant="body2" className={"position-extra"}>
-                  Previously known as Gyaan AI
-                </Typography>
-                <span className={"date-pill"}>November 2023 - Present</span>
-              </div>
-            </TimelineContent>
-          </TimelineItem>
 
-          <TimelineItem className={"career-timeline-item"}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              variant="h6"
-              color="gray"
-            ></TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-              <TimelineDot variant="outlined" sx={dotSx}>
-                <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
-              </TimelineDot>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
+        {/* Item 0: MaxIQ — even → card on right */}
+        <div className="career-timeline-item flex">
+          {!isMobile && <div className="flex-1 pr-4 py-3" />}
+          <div className="flex flex-col items-center">
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+            <div className="active-dot rounded-full border-2 p-1.5 flex items-center justify-center" style={{ borderColor: "var(--color-accent)", backgroundColor: "var(--color-bg-dot)", boxShadow: "none" }}>
+              <img src={MaxIQLogo} alt="maxiq logo" className={"timeline-dot-image"} />
+            </div>
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          </div>
+          <div className="flex-1 flex items-center pl-4 py-3">
+            <div className={"timeline-entry-card"}>
+              <span className={"position-title"}>Senior Software Engineer</span>
+              <span className={"position-company"}>MaxIQ, Pune</span>
+              <span className={"position-extra"}>Previously known as Gyaan AI</span>
+              <span className={"date-pill"}>November 2023 - Present</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Item 1: Velotio SE — odd → card on left */}
+        <div className="career-timeline-item flex">
+          {!isMobile && (
+            <div className="flex-1 flex items-center justify-end pr-4 py-3">
               <div className={"timeline-entry-card"}>
-                <Typography variant="h6" component="span" className={"position-title"}>
-                  Software Engineer
-                </Typography>
-                <Typography variant="body2" className={"position-company"}>
-                  Velotio Technologies, Pune
-                </Typography>
+                <span className={"position-title"}>Software Engineer</span>
+                <span className={"position-company"}>Velotio Technologies, Pune</span>
                 <span className={"date-pill"}>March 2022 - November 2023</span>
               </div>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem className={"career-timeline-item"}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              align="right"
-              variant="body2"
-              color="gray"
-            ></TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-              <TimelineDot variant="outlined" sx={dotSx}>
-                <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
-              </TimelineDot>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
+            </div>
+          )}
+          <div className="flex flex-col items-center">
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+            <div className="rounded-full border-2 p-1.5 flex items-center justify-center" style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-dot)", boxShadow: "none" }}>
+              <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
+            </div>
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          </div>
+          <div className="flex-1 flex items-center pl-4 py-3">
+            {isMobile && (
               <div className={"timeline-entry-card"}>
-                <Typography variant="h6" component="span" className={"position-title"}>
-                  Associate Software Engineer
-                </Typography>
-                <Typography variant="body2" className={"position-company"}>
-                  Velotio Technologies, Pune
-                </Typography>
-                <span className={"date-pill"}>July 2021 - March 2022</span>
+                <span className={"position-title"}>Software Engineer</span>
+                <span className={"position-company"}>Velotio Technologies, Pune</span>
+                <span className={"date-pill"}>March 2022 - November 2023</span>
               </div>
-            </TimelineContent>
-          </TimelineItem>
+            )}
+          </div>
+        </div>
 
-          <TimelineItem className={"career-timeline-item"}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              align="right"
-              variant="body2"
-              color="gray"
-            ></TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-              <TimelineDot variant="outlined" sx={dotSx}>
-                <img src={PhoenixgenSystemsLogo} alt="phoenixgen systems logo" className={"timeline-dot-image"} />
-              </TimelineDot>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
+        {/* Item 2: Velotio ASE — even → card on right */}
+        <div className="career-timeline-item flex">
+          {!isMobile && <div className="flex-1 pr-4 py-3" />}
+          <div className="flex flex-col items-center">
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+            <div className="rounded-full border-2 p-1.5 flex items-center justify-center" style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-dot)", boxShadow: "none" }}>
+              <img src={VelotioLogo} alt="velotio logo" className={"timeline-dot-image"} />
+            </div>
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          </div>
+          <div className="flex-1 flex items-center pl-4 py-3">
+            <div className={"timeline-entry-card"}>
+              <span className={"position-title"}>Associate Software Engineer</span>
+              <span className={"position-company"}>Velotio Technologies, Pune</span>
+              <span className={"date-pill"}>July 2021 - March 2022</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Item 3: Phoenixgen — odd → card on left */}
+        <div className="career-timeline-item flex">
+          {!isMobile && (
+            <div className="flex-1 flex items-center justify-end pr-4 py-3">
               <div className={"timeline-entry-card"}>
-                <Typography variant="h6" component="span" className={"position-title"}>
-                  SDE Intern
-                </Typography>
-                <Typography variant="body2" className={"position-company"}>
-                  Phoenixgen Systems
-                </Typography>
+                <span className={"position-title"}>SDE Intern</span>
+                <span className={"position-company"}>Phoenixgen Systems</span>
                 <span className={"date-pill"}>April 2020 - October 2020</span>
               </div>
-            </TimelineContent>
-          </TimelineItem>
-
-          <TimelineItem className={"career-timeline-item"}>
-            <TimelineOppositeContent
-              sx={{ m: "auto 0" }}
-              align="right"
-              variant="body2"
-              color="gray"
-            ></TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector sx={connectorSx} className={"career-timeline-connector"} />
-              <TimelineDot variant="outlined" sx={dotSx}>
-                <img src={EngineeringCollegeLogo} alt="engineering college logo" className={"timeline-dot-image"} />
-              </TimelineDot>
-              <TimelineConnector
-                sx={connectorSx}
-                className={"fading-timeline-connector career-timeline-connector"}
-              />
-            </TimelineSeparator>
-            <TimelineContent sx={{ py: "12px", px: 2 }}>
+            </div>
+          )}
+          <div className="flex flex-col items-center">
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+            <div className="rounded-full border-2 p-1.5 flex items-center justify-center" style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-dot)", boxShadow: "none" }}>
+              <img src={PhoenixgenSystemsLogo} alt="phoenixgen systems logo" className={"timeline-dot-image"} />
+            </div>
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+          </div>
+          <div className="flex-1 flex items-center pl-4 py-3">
+            {isMobile && (
               <div className={"timeline-entry-card"}>
-                <Typography variant="h6" component="span" className={"position-title"}>
-                  B. Tech (Computer Engineering)
-                </Typography>
-                <Typography variant="body2" className={"position-company"}>
-                  G. H. Raisoni College of Engineering and Management, Pune
-                </Typography>
-                <span className={"date-pill"}>2017 - 2021</span>
-                <Typography variant="body2" className={"position-extra"}>
-                  CGPA: 9.61
-                </Typography>
+                <span className={"position-title"}>SDE Intern</span>
+                <span className={"position-company"}>Phoenixgen Systems</span>
+                <span className={"date-pill"}>April 2020 - October 2020</span>
               </div>
-            </TimelineContent>
-          </TimelineItem>
-        </Timeline>
+            )}
+          </div>
+        </div>
+
+        {/* Item 4: College — even → card on right, last item */}
+        <div className="career-timeline-item flex">
+          {!isMobile && <div className="flex-1 pr-4 py-3" />}
+          <div className="flex flex-col items-center">
+            <div className="career-timeline-connector w-0.5 flex-1" style={{ backgroundColor: "var(--color-border)" }} />
+            <div className="rounded-full border-2 p-1.5 flex items-center justify-center" style={{ borderColor: "var(--color-border)", backgroundColor: "var(--color-bg-dot)", boxShadow: "none" }}>
+              <img src={EngineeringCollegeLogo} alt="engineering college logo" className={"timeline-dot-image"} />
+            </div>
+            <div className={"fading-timeline-connector career-timeline-connector w-0.5 flex-1"} />
+          </div>
+          <div className="flex-1 flex items-center pl-4 py-3">
+            <div className={"timeline-entry-card"}>
+              <span className={"position-title"}>B. Tech (Computer Engineering)</span>
+              <span className={"position-company"}>G. H. Raisoni College of Engineering and Management, Pune</span>
+              <span className={"date-pill"}>2017 - 2021</span>
+              <span className={"position-extra"}>CGPA: 9.61</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
     </>
