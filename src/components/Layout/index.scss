@@ -4,6 +4,9 @@
 
 .container {
   width: 100%;
+  // Tailwind v4's built-in .container utility adds responsive max-width breakpoints (e.g. 80rem on large screens),
+  // which conflicts with our .container class and caps content width. This overrides it.
+  max-width: none;
   will-change: contents;
   min-height: 100vh;
   position: relative;
