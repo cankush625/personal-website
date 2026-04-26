@@ -4,12 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import usePopupClose from "../../hooks/usePopupClose";
 import useScrollLock from "../../hooks/useScrollLock";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../ui/accordion";
 import LinearProgress from "@mui/material/LinearProgress";
-import Box from "@mui/material/Box";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import books from "../../data/books";
 import papers from "../../data/papers";
 import blogs from "../../data/blogs";
@@ -113,7 +109,7 @@ const PaperShelf = () => {
                 <h4 className="authors">Authors: {port.authors}</h4>
 
                 {sectionKey === "books" && (
-                  <Box sx={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
+                  <div style={{ width: "100%", display: "flex", alignItems: "center", gap: "6px", height: "16px" }}>
                     <LinearProgress
                       variant="determinate"
                       value={(port.pagesRead / port.totalPages) * 100}
@@ -137,7 +133,7 @@ const PaperShelf = () => {
                         <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#05730c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
                     )}
-                  </Box>
+                  </div>
                 )}
 
                 <div className="button-container">
@@ -207,32 +203,27 @@ const PaperShelf = () => {
               idx={15}
             />
           </h1>
-          <div className="content-zone">
-            {SECTIONS.map(({ key, label, data, defaultExpanded }) => (
-              <Accordion
-                key={key}
-                defaultExpanded={defaultExpanded}
-                disableGutters
-                square={key !== "blogs"}
-                className="content-sections"
-                sx={{ backgroundImage: "none" }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon className="expand-icon" />}
+          <Accordion
+            defaultValue={SECTIONS.filter(s => s.defaultExpanded).map(s => s.key)}
+            className="content-zone"
+          >
+            {SECTIONS.map(({ key, label, data }) => (
+              <AccordionItem key={key} value={key} className="content-sections">
+                <AccordionTrigger
                   aria-controls={`${key}-content`}
                   className={`${key}-header`}
                 >
                   <h3>{label}</h3>
-                </AccordionSummary>
-                <AccordionDetails className="content-details">
+                </AccordionTrigger>
+                <AccordionContent className="content-details">
                   <div>
                     {renderReadWrittenToggle(key)}
                     {renderItems(key, data, activeKeys[key])}
                   </div>
-                </AccordionDetails>
-              </Accordion>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </div>
     </>

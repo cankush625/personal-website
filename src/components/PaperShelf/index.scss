@@ -31,14 +31,39 @@
   .content-sections {
     background-color: var(--color-bg-surface);
     transition: background-color 0.2s;
+    // Remove the bottom border ShadCN AccordionItem adds between sections
+    border: none;
 
     h3 {
       color: var(--color-text-secondary);
       margin: 0;
+      font-size: 14px;
+      font-weight: 600;
     }
 
-    .expand-icon {
+    // Target ShadCN accordion trigger icon (replaces MUI ExpandMoreIcon)
+    [data-slot="accordion-trigger-icon"] {
       color: var(--color-text-muted);
+    }
+
+    // ShadCN trigger is a <button> — reset browser default button appearance
+    // and disable the hover:underline that ShadCN applies by default
+    [data-slot="accordion-trigger"] {
+      appearance: none;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      width: 100%;
+      padding: 13px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
 
     &:hover {
@@ -48,7 +73,7 @@
         color: var(--color-text-primary);
       }
 
-      .expand-icon {
+      [data-slot="accordion-trigger-icon"] {
         color: var(--color-text-primary);
       }
     }
