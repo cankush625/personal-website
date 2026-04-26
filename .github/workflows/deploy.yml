@@ -25,15 +25,14 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          CI: false
-          REACT_APP_SHOW_INSTAGRAM: ${{ vars.REACT_APP_SHOW_INSTAGRAM }}
-          REACT_APP_SERVICE_ID: ${{ vars.REACT_APP_SERVICE_ID }}
-          REACT_APP_EMAILJS_TEMPLATE_ID: ${{ vars.REACT_APP_EMAILJS_TEMPLATE_ID }}
-          REACT_APP_EMAILJS_PUBLIC_KEY: ${{ vars.REACT_APP_EMAILJS_PUBLIC_KEY }}
+          VITE_SHOW_INSTAGRAM: ${{ vars.VITE_SHOW_INSTAGRAM }}
+          VITE_SERVICE_ID: ${{ vars.VITE_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ vars.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ vars.VITE_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
           cname: ankushchavan.com

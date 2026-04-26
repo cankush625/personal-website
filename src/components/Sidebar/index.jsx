@@ -23,7 +23,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 
-const SHOW_INSTAGRAM = process.env.REACT_APP_SHOW_INSTAGRAM === "true";
+const SHOW_INSTAGRAM = import.meta.env.VITE_SHOW_INSTAGRAM === "true";
 
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false);
