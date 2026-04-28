@@ -21,6 +21,6 @@
 
 @for $i from 1 through 37 {
   .text-animate._#{$i} {
-    animation-delay: #{math.div($i, 10)}s;
+    animation-delay: #{math.div($i, 20)}s;
   }
 }
